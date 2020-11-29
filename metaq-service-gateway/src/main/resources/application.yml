@@ -16,6 +16,18 @@ spring:
             - Path= /area/**
           filters:
             - StripPrefix=1
+            - name: RequestRateLimiter
+              args:
+                # 令牌桶每秒填充平均速率, 允许用户每秒处理多少个请求。
+                redis-rate-limiter.replenishRate: 1
+                # 令牌桶的容量，允许在1s内完成的最大请求数。
+                redis-rate-limiter.burstCapacity: 2
+                # 使用SpEL表达式从Spring容器中获取Bean对象, 查看RateLimiteConfig实现类中的同名方法
+                key-resolver: "#{@hostKeyResolver}"
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    database: 0
 server:
   port: 7002
 
@@ -25,3 +37,6 @@ eureka:
       defaultZone: http://localhost:7001/eureka/
   instance:
     prefer-ip-address: true
+
+
+debug: true
