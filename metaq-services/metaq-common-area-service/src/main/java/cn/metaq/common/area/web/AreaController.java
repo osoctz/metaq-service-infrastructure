@@ -5,12 +5,10 @@ import cn.metaq.common.area.domain.Area;
 import cn.metaq.common.area.dto.AreaDTO;
 import cn.metaq.common.core.dto.Pagination;
 import cn.metaq.common.web.BaseController;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * AreaController
@@ -30,5 +28,14 @@ public class AreaController extends BaseController<AreaBiz> {
     public Pagination<Area> list(@RequestBody(required = false) AreaDTO areaDTO, int offset, int limit){
 
         return baseBiz.list(areaDTO,offset,limit);
+    }
+
+    @GetMapping("{parent}")
+    public List<Area> list(@PathVariable String parent){
+
+        AreaDTO areaDTO=new AreaDTO();
+        areaDTO.setParent(parent);
+
+        return baseBiz.list(areaDTO);
     }
 }
