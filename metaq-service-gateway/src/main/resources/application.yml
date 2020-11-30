@@ -10,6 +10,12 @@ spring:
             - Path= /uaa/**
           filters:
             - StripPrefix=1
+        - id: mobile-srv
+          uri: lb://mobile-srv
+          predicates:
+            - Path= /mobile/**
+          filters:
+            - StripPrefix=1
         - id: area-srv
           uri: lb://area-srv
           predicates:
