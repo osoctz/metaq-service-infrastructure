@@ -13,17 +13,21 @@ spring:
         - id: area-srv
           uri: lb://area-srv
           predicates:
-            - Path= /area/**
+            - Path= /common/**
           filters:
             - StripPrefix=1
             - name: RequestRateLimiter
               args:
                 # 令牌桶每秒填充平均速率, 允许用户每秒处理多少个请求。
-                redis-rate-limiter.replenishRate: 1
+                redis-rate-limiter.replenishRate: 2
                 # 令牌桶的容量，允许在1s内完成的最大请求数。
-                redis-rate-limiter.burstCapacity: 2
+                redis-rate-limiter.burstCapacity: 20
                 # 使用SpEL表达式从Spring容器中获取Bean对象, 查看RateLimiteConfig实现类中的同名方法
                 key-resolver: "#{@hostKeyResolver}"
+            - name: Hystrix
+              args:
+                name: fallbackcmd
+                fallbackUri: forward:/default/fallback
   redis:
     host: 127.0.0.1
     port: 6379
@@ -39,4 +43,13 @@ eureka:
     prefer-ip-address: true
 
 
-debug: true
+# hystrix 信号量隔离，3秒后自动超时
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          strategy: SEMAPHORE
+          thread:
+            timeoutInMilliseconds: 3000
+  shareSecurityContext: true
