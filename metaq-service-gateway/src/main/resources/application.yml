@@ -28,6 +28,18 @@ spring:
               args:
                 name: fallbackcmd
                 fallbackUri: forward:/default/fallback
+            - name: Retry
+              args:
+                retries: 15
+                series:
+                  - SERVER_ERROR
+                  - CLIENT_ERROR
+                method:
+                  - GET
+                  - POST
+                exceptions:
+                  - java.io.IOException
+                  - java.util.concurrent.TimeoutException
   redis:
     host: 127.0.0.1
     port: 6379
