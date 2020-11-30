@@ -20,6 +20,11 @@
 
 ##### 熔断
 
+[说明](metaq-service-gateway/README.md)
+
+##### 重试机制
+
+[说明](metaq-service-gateway/README.md)
 
 ### 2 计划
 
