@@ -7,7 +7,6 @@ import cn.metaq.common.core.dto.Pagination;
 import cn.metaq.common.web.BaseController;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -20,9 +19,6 @@ import java.util.List;
 @RestController
 @RequestMapping("areas")
 public class AreaController extends BaseController<AreaBiz> {
-
-//    @Resource
-//    private AreaBiz areaBiz;
 
     @PostMapping("pages")
     public Pagination<Area> list(@RequestBody(required = false) AreaDTO areaDTO, int offset, int limit){
@@ -38,4 +34,5 @@ public class AreaController extends BaseController<AreaBiz> {
 
         return baseBiz.list(areaDTO);
     }
+
 }
