@@ -35,6 +35,13 @@
 
 #### 1.1.4 分布式事物
 
+```yaml
+版本映射关系
+Spring Cloud Alibaba 2.1.0 RELEASE对应的Spring Cloud Greenwich版本
+Spring Cloud Alibaba 2.2.0 RELEASE对应的Spring Cloud Hoxton.RELEASE版本
+Spring Cloud Alibaba 2.2.1 RELEASE对应的Spring Cloud Hoxton.SR3版本
+```
+
 #### 1.1.5 服务监控
 
 ### 2 计划
