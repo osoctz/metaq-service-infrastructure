@@ -44,6 +44,13 @@ Spring Cloud Alibaba 2.2.1 RELEASE对应的Spring Cloud Hoxton.SR3版本
 
 #### 1.1.5 服务监控
 
+```markdown
+
+Grafana FlowCharting
+https://www.jianshu.com/p/ba4faef24d11
+
+```
+
 ### 2 计划
 
 - 集成keycloak作为鉴权授权中心
