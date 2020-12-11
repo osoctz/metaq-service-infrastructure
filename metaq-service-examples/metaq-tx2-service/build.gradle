@@ -1,0 +1,52 @@
+plugins {
+    id 'org.springframework.boot' version '2.3.6.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+    id 'java'
+}
+
+group = 'cn.metaq'
+version = '1.0-SNAPSHOT'
+sourceCompatibility = '11'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+ext {
+    set('springCloudVersion', "Hoxton.SR9")
+    set('metaqVersion', "1.0-SNAPSHOT")
+    set('alibabaCloudVersion',"2.2.1.RELEASE")
+}
+
+repositories {
+    mavenCentral()
+    maven { url 'https://repo.spring.io/milestone' }
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
+    implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-seata'
+//    implementation "cn.metaq:seata-biz-spring-boot-starter:${metaqVersion}"
+    compileOnly 'org.projectlombok:lombok'
+    compileOnly "cn.metaq:metaq-data-jpa-biz:${metaqVersion}"
+    compileOnly "cn.metaq:metaq-common-web-biz:${metaqVersion}"
+    runtimeOnly 'mysql:mysql-connector-java'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+        mavenBom "cn.metaq:metaq-dependencies:${metaqVersion}"
+        mavenBom "com.alibaba.cloud:spring-cloud-alibaba-dependencies:${alibabaCloudVersion}"
+    }
+}
+
+test {
+    useJUnitPlatform()
+}
