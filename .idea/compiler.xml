@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="metaq-uaa-service-client" />
+        <module name="metaq-tx1-service" />
+        <module name="metaq-clientdetails-service" />
+        <module name="metaq-area-service" />
+        <module name="metaq-mobile-service" />
+        <module name="metaq-service-discovery" />
+        <module name="metaq-service-gateway" />
+        <module name="metaq-uaa-service" />
+        <module name="metaq-tx2-service" />
+        <module name="metaq-service-uaa" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="metaq-area-service" target="11" />
+      <module name="metaq-clientdetails-service" target="11" />
+      <module name="metaq-mobile-service" target="11" />
+      <module name="metaq-service-discovery" target="11" />
+      <module name="metaq-service-gateway" target="11" />
+      <module name="metaq-service-uaa" target="11" />
+      <module name="metaq-tx1-service" target="11" />
+      <module name="metaq-tx2-service" target="11" />
+      <module name="metaq-uaa-service" target="11" />
+      <module name="metaq-uaa-service-client" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

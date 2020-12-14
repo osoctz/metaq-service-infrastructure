@@ -2,8 +2,17 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/metaq-keycloak-server/metaq-keycloak-server.iml" filepath="$PROJECT_DIR$/metaq-keycloak-server/metaq-keycloak-server.iml" />
-      <module fileurl="file://$PROJECT_DIR$/metaq-services/metaq-services.iml" filepath="$PROJECT_DIR$/metaq-services/metaq-services.iml" />
+      <module fileurl="file://$PROJECT_DIR$/metaq-services/metaq-area-service/metaq-area-service.iml" filepath="$PROJECT_DIR$/metaq-services/metaq-area-service/metaq-area-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/metaq-services/metaq-clientdetails-service/metaq-clientdetails-service.iml" filepath="$PROJECT_DIR$/metaq-services/metaq-clientdetails-service/metaq-clientdetails-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/metaq-services/metaq-mobile-service/metaq-mobile-service.iml" filepath="$PROJECT_DIR$/metaq-services/metaq-mobile-service/metaq-mobile-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/metaq-service-discovery/metaq-service-discovery.iml" filepath="$PROJECT_DIR$/metaq-service-discovery/metaq-service-discovery.iml" />
+      <module fileurl="file://$PROJECT_DIR$/metaq-service-gateway/metaq-service-gateway.iml" filepath="$PROJECT_DIR$/metaq-service-gateway/metaq-service-gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/metaq-service-infrastructure.iml" filepath="$PROJECT_DIR$/.idea/metaq-service-infrastructure.iml" />
+      <module fileurl="file://$PROJECT_DIR$/metaq-service-uaa/metaq-service-uaa.iml" filepath="$PROJECT_DIR$/metaq-service-uaa/metaq-service-uaa.iml" />
+      <module fileurl="file://$PROJECT_DIR$/metaq-service-examples/metaq-tx1-service/metaq-tx1-service.iml" filepath="$PROJECT_DIR$/metaq-service-examples/metaq-tx1-service/metaq-tx1-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/metaq-service-examples/metaq-tx2-service/metaq-tx2-service.iml" filepath="$PROJECT_DIR$/metaq-service-examples/metaq-tx2-service/metaq-tx2-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/metaq-services/metaq-uaa-service/metaq-uaa-service.iml" filepath="$PROJECT_DIR$/metaq-services/metaq-uaa-service/metaq-uaa-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/metaq-service-clients/metaq-uaa-service-client/metaq-uaa-service-client.iml" filepath="$PROJECT_DIR$/metaq-service-clients/metaq-uaa-service-client/metaq-uaa-service-client.iml" />
     </modules>
   </component>
 </project>
