@@ -8,24 +8,11 @@
     <artifactId>metaq-service-uaa</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <distributionManagement>
-        <repository>
-            <id>rdc-releases</id>
-            <url>https://repo.rdc.aliyun.com/repository/118501-release-0Zsv6f/</url>
-        </repository>
-        <snapshotRepository>
-            <id>rdc-snapshots</id>
-            <url>https://repo.rdc.aliyun.com/repository/118501-snapshot-rOsxXx/</url>
-        </snapshotRepository>
-    </distributionManagement>
-
-    <properties>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
-        <spring-cloud.version>Hoxton.SR9</spring-cloud.version>
-        <spring-boot.version>2.3.6.RELEASE</spring-boot.version>
-        <metaq.version>1.0-SNAPSHOT</metaq.version>
-    </properties>
+    <parent>
+        <artifactId>metaq-service-infrastructure</artifactId>
+        <groupId>cn.metaq</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
 
     <dependencies>
         <dependency>
@@ -74,29 +61,4 @@
         </dependency>
     </dependencies>
 
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-dependencies</artifactId>
-                <version>${spring-boot.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <version>${spring-cloud.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency>
-                <groupId>cn.metaq</groupId>
-                <artifactId>metaq-dependencies</artifactId>
-                <version>${metaq.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
 </project>

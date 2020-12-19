@@ -5,9 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>cn.metaq</groupId>
-    <artifactId>metaq-service-discovery</artifactId>
+    <artifactId>metaq-services</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <packaging>pom</packaging>
 
     <parent>
         <artifactId>metaq-service-infrastructure</artifactId>
@@ -15,12 +15,10 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
-        </dependency>
-
-    </dependencies>
-
+    <modules>
+        <module>metaq-area-service</module>
+        <module>metaq-clientdetails-service</module>
+        <module>metaq-mobile-service</module>
+        <module>metaq-uaa-service</module>
+    </modules>
 </project>
