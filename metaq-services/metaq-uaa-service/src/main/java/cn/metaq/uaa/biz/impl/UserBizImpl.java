@@ -5,7 +5,13 @@ import cn.metaq.uaa.biz.UserBiz;
 import cn.metaq.uaa.dao.UserDao;
 import cn.metaq.uaa.domain.User;
 import cn.metaq.uaa.dto.UserDTO;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
+
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
 
 /**
  * UserBizImpl
@@ -16,4 +22,15 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class UserBizImpl extends BaseBiz<User, UserDTO, Long, UserDao> implements UserBiz {
+
+    @Override
+    public User loadUserByUsername(String username) {
+
+        return repository.findOne(new Specification<User>() {
+            @Override
+            public Predicate toPredicate(Root<User> root, CriteriaQuery<?> cq, CriteriaBuilder cb) {
+                return cb.equal(root.get("username"), username);
+            }
+        }).orElseThrow();
+    }
 }

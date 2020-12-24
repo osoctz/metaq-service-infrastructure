@@ -12,4 +12,6 @@ import cn.metaq.uaa.dto.UserDTO;
  * @since 1.0
  */
 public interface UserBiz extends Biz<User, UserDTO, Long> {
+
+    User loadUserByUsername(String username);
 }

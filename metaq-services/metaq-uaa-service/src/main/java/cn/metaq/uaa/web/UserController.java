@@ -5,9 +5,7 @@ import cn.metaq.common.web.BaseController;
 import cn.metaq.uaa.biz.UserBiz;
 import cn.metaq.uaa.domain.User;
 import cn.metaq.uaa.dto.UserDTO;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * UserController
@@ -23,5 +21,11 @@ public class UserController extends BaseController<UserBiz> {
     public Pagination<User> list(@RequestBody UserDTO userDTO, int offset, int limit) {
 
         return baseBiz.list(userDTO, offset, limit);
+    }
+
+    @GetMapping("users")
+    public User loadUserByUsername(@RequestParam String username){
+
+        return baseBiz.loadUserByUsername(username);
     }
 }
