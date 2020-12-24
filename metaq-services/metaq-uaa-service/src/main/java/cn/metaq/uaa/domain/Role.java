@@ -7,7 +7,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "role")
+@Table(name = "ROLE")
 @Setter
 @Getter
 public class Role implements IEntity<Long> {
@@ -21,14 +21,16 @@ public class Role implements IEntity<Long> {
 	@Column(name = "ID" )
 	@Id
 	private Long id;
+
 	/**
 	 * 角色名
 	 */
-	@Column(name = "NAME" )
-	private String name;
+	@Column(name = "NAME_CN" )
+	private String nameCn;
+
 	/**
 	 * 角色编码
 	 */
-	@Column(name = "CODE" )
-	private String code;
+	@Column(name = "NAME_EN" )
+	private String nameEn;
 }

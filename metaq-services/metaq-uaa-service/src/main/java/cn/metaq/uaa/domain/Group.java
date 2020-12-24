@@ -6,17 +6,29 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "group")
+@Table(name = "GROUP")
 @Setter
 @Getter
 public class Group implements IEntity<Long>{
 
 	private static final long serialVersionUID =  781118650285121874L;
 
-	@Column(name = "id" )
+	@Column(name = "ID" )
 	@Id
 	private Long id;
 
-	@Column(name = "name" )
-	private String name;
+	@Column(name = "type" )
+	private String type;
+
+	@Column(name = "NAME_CN" )
+	private String nameCn;
+
+	@Column(name = "NAME_EN" )
+	private String nameEn;
+
+	@Column(name = "PRIORITY" )
+	private String priority;
+
+	@Column(name = "PID" )
+	private Long pid;
 }

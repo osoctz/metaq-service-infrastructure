@@ -6,21 +6,21 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "role_group")
+@Table(name = "ROLE_GROUP")
 @Setter
 @Getter
 public class RoleGroup implements IEntity<Long>{
 
 	private static final long serialVersionUID =  3421917631455682913L;
 
-	@Column(name = "id" )
+	@Column(name = "ID" )
 	@Id
 	private Long id;
 
-	@Column(name = "role_id" )
+	@Column(name = "ROLE_ID" )
 	private Long roleId;
 
-	@Column(name = "group_id" )
+	@Column(name = "GROUP_ID" )
 	private Long groupId;
 
 }

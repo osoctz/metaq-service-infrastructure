@@ -6,7 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "authority")
+@Table(name = "AUTHORITY")
 @Setter
 @Getter
 public class Authority implements IEntity<Long>{

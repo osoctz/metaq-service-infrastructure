@@ -32,9 +32,9 @@ public class ClientDetailsDTO implements IDto{
 
 	private String autoApproveScopes;
 
-	private Long accessTokenValiditySeconds;
+	private Integer accessTokenValiditySeconds;
 
-	private Long refreshTokenValiditySeconds;
+	private Integer refreshTokenValiditySeconds;
 
 	private String additionalInformation;
 

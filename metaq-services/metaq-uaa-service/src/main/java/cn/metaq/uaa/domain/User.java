@@ -19,7 +19,7 @@ import java.time.LocalDateTime;
  * @since 1.0
  */
 @Entity
-@Table(name="user")
+@Table(name="USER")
 @Setter
 @Getter
 public class User implements IEntity<Long> {

@@ -6,21 +6,21 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "user_group")
+@Table(name = "USER_GROUP")
 @Setter
 @Getter
 public class UserGroup implements IEntity<Long>{
 
 	private static final long serialVersionUID =  5418396176391306200L;
 
-	@Column(name = "id" )
+	@Column(name = "ID" )
 	@Id
 	private Long id;
 
-	@Column(name = "user_id" )
+	@Column(name = "USER_ID" )
 	private Long userId;
 
-	@Column(name = "group_id" )
+	@Column(name = "GROUP_ID" )
 	private Long groupId;
 
 }

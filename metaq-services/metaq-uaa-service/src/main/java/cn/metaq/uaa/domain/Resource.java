@@ -6,7 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "resource")
+@Table(name = "RESOURCE")
 @Setter
 @Getter
 public class Resource implements IEntity<Long>{
@@ -17,25 +17,16 @@ public class Resource implements IEntity<Long>{
 	@Id
 	private Long id;
 
-	@Column(name = "NAME" )
-	private String name;
+	@Column(name = "NAME_CN" )
+	private String nameCn;
 
-	@Column(name = "CODE" )
-	private String code;
+	@Column(name = "NAME_EN" )
+	private String nameEn;
 
 	@Column(name = "TYPE" )
 	private String type;
 
-//	@Column(name = "PATH" )
-//	private String path;
-//
-//	@Column(name = "ICON" )
-//	private String icon;
-
 	@Column(name = "PRIORITY" )
 	private Long priority;
-
-	@Column(name = "PID" )
-	private Long pid;
 
 }
