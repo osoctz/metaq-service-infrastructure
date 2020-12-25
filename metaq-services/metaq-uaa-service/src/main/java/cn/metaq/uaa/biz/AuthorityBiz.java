@@ -4,6 +4,8 @@ import cn.metaq.data.Biz;
 import cn.metaq.uaa.domain.Authority;
 import cn.metaq.uaa.dto.AuthorityDTO;
 
+import java.util.Set;
+
 /**
  * AuthorityBiz
  *
@@ -12,4 +14,7 @@ import cn.metaq.uaa.dto.AuthorityDTO;
  * @since 1.0
  */
 public interface AuthorityBiz extends Biz<Authority, AuthorityDTO, Long> {
+
+    Set<String> loadAuthorityByUsername(String username);
+
 }

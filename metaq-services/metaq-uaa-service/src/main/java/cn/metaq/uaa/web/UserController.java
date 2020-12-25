@@ -2,6 +2,7 @@ package cn.metaq.uaa.web;
 
 import cn.metaq.common.core.dto.Pagination;
 import cn.metaq.common.web.BaseController;
+import cn.metaq.common.web.annotation.IgnoreResultWrapper;
 import cn.metaq.uaa.biz.UserBiz;
 import cn.metaq.uaa.domain.User;
 import cn.metaq.uaa.dto.UserDTO;
@@ -24,6 +25,7 @@ public class UserController extends BaseController<UserBiz> {
     }
 
     @GetMapping("users")
+    @IgnoreResultWrapper
     public User loadUserByUsername(@RequestParam String username){
 
         return baseBiz.loadUserByUsername(username);

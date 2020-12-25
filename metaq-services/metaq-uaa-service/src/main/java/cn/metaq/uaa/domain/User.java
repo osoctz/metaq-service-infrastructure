@@ -5,10 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 /**
@@ -33,7 +30,9 @@ public class User implements IEntity<Long> {
     private String username;
     private String password;
     private String email;
+
+    @Column(name = "LAST_PASSWORD_RESET_DATE")
     private LocalDateTime lastPasswordResetDate;
-    private boolean enable;
+    private boolean enabled;
 
 }
