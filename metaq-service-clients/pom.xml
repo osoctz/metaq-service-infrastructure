@@ -17,5 +17,6 @@
 
     <modules>
         <module>metaq-uaa-service-client</module>
+        <module>metaq-clientdetails-service-client</module>
     </modules>
 </project>
