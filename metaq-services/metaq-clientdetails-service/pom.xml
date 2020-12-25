@@ -27,10 +27,10 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-seata</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.alibaba.cloud</groupId>-->
+<!--            <artifactId>spring-cloud-starter-alibaba-seata</artifactId>-->
+<!--        </dependency>-->
 
         <dependency>
             <groupId>cn.metaq</groupId>
@@ -43,6 +43,11 @@
             <version>${metaq.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>cn.metaq</groupId>
+            <artifactId>metaq-uaa-service-client</artifactId>
+            <version>${metaq.version}</version>
+        </dependency>
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>

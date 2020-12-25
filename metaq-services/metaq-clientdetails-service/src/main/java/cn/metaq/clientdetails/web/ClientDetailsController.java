@@ -5,7 +5,10 @@ import cn.metaq.clientdetails.domain.ClientDetails;
 import cn.metaq.clientdetails.dto.ClientDetailsDTO;
 import cn.metaq.common.core.dto.Pagination;
 import cn.metaq.common.web.BaseController;
+import cn.metaq.common.web.annotation.IgnoreResultWrapper;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Set;
 
 /**
  * ClientDetailsController
@@ -24,8 +27,16 @@ public class ClientDetailsController extends BaseController<ClientDetailsBiz> {
     }
 
     @GetMapping("clientDetails/{clientId}")
+    @IgnoreResultWrapper
     public ClientDetails loadClientByClientId(@PathVariable String clientId){
 
         return baseBiz.loadClientByClientId(clientId);
+    }
+
+    @GetMapping("clientDetails/authorities")
+    @IgnoreResultWrapper
+    public Set<String> loadAuthorityByClientId(@RequestParam String clientId){
+
+        return baseBiz.loadAuthorityByClientId(clientId);
     }
 }

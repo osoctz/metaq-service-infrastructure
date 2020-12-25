@@ -6,7 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "client_details")
+@Table(name = "CLIENT_DETAILS")
 @Setter
 @Getter
 public class ClientDetails implements IEntity<Long>{
@@ -28,9 +28,6 @@ public class ClientDetails implements IEntity<Long>{
 
 	@Column(name = "scope" )
 	private String scope;
-
-	@Column(name = "authorities" )
-	private String authorities;
 
 	/**
 	 * authorizedGrantTypes

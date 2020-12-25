@@ -4,6 +4,8 @@ import cn.metaq.clientdetails.domain.ClientDetails;
 import cn.metaq.clientdetails.dto.ClientDetailsDTO;
 import cn.metaq.data.Biz;
 
+import java.util.Set;
+
 /**
  * ClientDetailsBiz
  *
@@ -14,4 +16,7 @@ import cn.metaq.data.Biz;
 public interface ClientDetailsBiz extends Biz<ClientDetails, ClientDetailsDTO, Long> {
 
     ClientDetails loadClientByClientId(String clientId);
+
+
+    Set<String> loadAuthorityByClientId(String clientId);
 }
