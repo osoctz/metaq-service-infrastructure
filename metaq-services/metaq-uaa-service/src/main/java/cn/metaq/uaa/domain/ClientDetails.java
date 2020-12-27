@@ -1,9 +1,13 @@
-package cn.metaq.clientdetails.domain;
+package cn.metaq.uaa.domain;
 
 import cn.metaq.common.core.IEntity;
-import javax.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "CLIENT_DETAILS")

@@ -1,4 +1,4 @@
-package cn.metaq.clientdetails.domain;
+package cn.metaq.uaa.domain;
 
 import cn.metaq.common.core.IEntity;
 import lombok.Getter;

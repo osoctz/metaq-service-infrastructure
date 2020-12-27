@@ -1,8 +1,8 @@
-package cn.metaq.clientdetails.biz;
+package cn.metaq.uaa.biz;
 
-import cn.metaq.clientdetails.domain.ClientDetails;
-import cn.metaq.clientdetails.dto.ClientDetailsDTO;
 import cn.metaq.data.Biz;
+import cn.metaq.uaa.domain.ClientDetails;
+import cn.metaq.uaa.dto.ClientDetailsDTO;
 
 import java.util.Set;
 

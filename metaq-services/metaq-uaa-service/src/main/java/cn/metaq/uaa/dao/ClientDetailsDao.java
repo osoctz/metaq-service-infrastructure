@@ -1,7 +1,7 @@
-package cn.metaq.clientdetails.dao;
+package cn.metaq.uaa.dao;
 
-import cn.metaq.clientdetails.domain.ClientDetails;
 import cn.metaq.data.jpa.BaseRepository;
+import cn.metaq.uaa.domain.ClientDetails;
 import org.springframework.stereotype.Repository;
 
 /**

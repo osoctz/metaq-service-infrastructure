@@ -1,11 +1,12 @@
-package cn.metaq.clientdetails.web;
+package cn.metaq.uaa.web;
 
-import cn.metaq.clientdetails.biz.ClientDetailsBiz;
-import cn.metaq.clientdetails.domain.ClientDetails;
-import cn.metaq.clientdetails.dto.ClientDetailsDTO;
+
 import cn.metaq.common.core.dto.Pagination;
 import cn.metaq.common.web.BaseController;
 import cn.metaq.common.web.annotation.IgnoreResultWrapper;
+import cn.metaq.uaa.biz.ClientDetailsBiz;
+import cn.metaq.uaa.domain.ClientDetails;
+import cn.metaq.uaa.dto.ClientDetailsDTO;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Set;
@@ -20,20 +21,20 @@ import java.util.Set;
 @RestController
 public class ClientDetailsController extends BaseController<ClientDetailsBiz> {
 
-    @PostMapping("clientDetails/pages")
+    @PostMapping("clients/pages")
     public Pagination<ClientDetails> list(@RequestBody ClientDetailsDTO clientDetailsDTO, int offset, int limit) {
 
         return baseBiz.list(clientDetailsDTO, offset, limit);
     }
 
-    @GetMapping("clientDetails/{clientId}")
+    @GetMapping("clients/{clientId}")
     @IgnoreResultWrapper
     public ClientDetails loadClientByClientId(@PathVariable String clientId){
 
         return baseBiz.loadClientByClientId(clientId);
     }
 
-    @GetMapping("clientDetails/authorities")
+    @GetMapping("clients/authorities")
     @IgnoreResultWrapper
     public Set<String> loadAuthorityByClientId(@RequestParam String clientId){
 

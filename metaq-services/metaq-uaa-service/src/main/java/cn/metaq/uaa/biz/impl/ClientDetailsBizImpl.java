@@ -1,14 +1,12 @@
-package cn.metaq.clientdetails.biz.impl;
+package cn.metaq.uaa.biz.impl;
 
-import cn.metaq.clientdetails.biz.ClientDetailsBiz;
-import cn.metaq.clientdetails.dao.ClientDetailsDao;
-import cn.metaq.clientdetails.domain.ClientDetails;
-import cn.metaq.clientdetails.dto.ClientDetailsDTO;
+
 import cn.metaq.data.jpa.BaseBiz;
 import cn.metaq.data.jpa.BaseTemplate;
-import cn.metaq.uaa.client.UaaServiceClient;
-import cn.metaq.uaa.dto.AuthorityDTO;
-import org.springframework.beans.factory.annotation.Autowired;
+import cn.metaq.uaa.biz.ClientDetailsBiz;
+import cn.metaq.uaa.dao.ClientDetailsDao;
+import cn.metaq.uaa.domain.ClientDetails;
+import cn.metaq.uaa.dto.ClientDetailsDTO;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
@@ -34,9 +32,6 @@ public class ClientDetailsBizImpl extends BaseBiz<ClientDetails, ClientDetailsDT
     @Resource
     private BaseTemplate template;
 
-    @Autowired
-    private UaaServiceClient uaaServiceClient;
-
     @Override
     public ClientDetails loadClientByClientId(String clientId) {
 
@@ -52,19 +47,18 @@ public class ClientDetailsBizImpl extends BaseBiz<ClientDetails, ClientDetailsDT
     @Override
     public Set<String> loadAuthorityByClientId(String clientId) {
 
-        String jql = "select ca.authorityId from ClientAuthority ca " +
+        String jql = "select a.authority from ClientAuthority ca " +
                 "left join ClientDetails c on ca.clientId=c.id " +
+                "left join Authority a on a.id=ca.authorityId " +
                 "where c.clientId=:clientId";
 
         Map<String, Object> params = new HashMap<>();
         params.put("clientId", clientId);
 
-        List<String> authorityIds = template.list(String.class, jql, params);
-
-        List<AuthorityDTO> authorities = uaaServiceClient.list();
+        List<String> authorities = template.list(String.class, jql, params);
 
         if (!CollectionUtils.isEmpty(authorities)) {
-            return authorities.stream().filter(a -> authorityIds.contains(a.getId())).map(s -> s.getAuthority()).collect(Collectors.toSet());
+            return authorities.stream().collect(Collectors.toSet());
         }
         return Collections.singleton("");
     }

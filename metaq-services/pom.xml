@@ -17,7 +17,6 @@
 
     <modules>
         <module>metaq-area-service</module>
-        <module>metaq-clientdetails-service</module>
         <module>metaq-mobile-service</module>
         <module>metaq-uaa-service</module>
     </modules>

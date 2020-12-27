@@ -2,6 +2,11 @@ spring:
   application:
     name: uaa-service
 
+  redis:
+    database: 0
+    host: uaa.metaq.cn
+    port: 6379
+
   datasource:
     url: jdbc:mysql://uaa.metaq.cn:13306/uaa_srv?useSSL=false&allowPublicKeyRetrieval=true&useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
     username: root
@@ -31,3 +36,25 @@ eureka:
 
 server:
   port: 10004
+
+#feign:
+#  client:
+#    config:
+#      default:
+#        connectTimeout: 5000
+#        readTimeout: 5000
+#        requestInterceptors:
+#          - cn.metaq.fegin.authz.interceptor.FeignClientsRequestInterceptor
+#
+security:
+  oauth2:
+    resource:
+      user-info-uri: http://localhost:8001/auth/current
+    #      prefer-token-info: false
+    client:
+      client-id: clientdetails
+      client-secret: $2a$10$xR9gilJBvsJpyggPgpYNve/8LoZUbXORtWSLmDF8yOaqu0C043a76
+      access-token-uri: http://localhost:8001/auth/oauth/token
+      user-authorization-uri: http://localhost:8001/auth/oauth/authorize
+
+debug: true
