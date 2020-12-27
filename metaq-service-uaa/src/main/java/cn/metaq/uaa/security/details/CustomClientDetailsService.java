@@ -1,8 +1,7 @@
 package cn.metaq.uaa.security.details;
 
-import cn.metaq.clientdetails.client.ClientDetailsClient;
-import cn.metaq.clientdetails.dto.ClientDetailsDTO;
 import cn.metaq.uaa.client.UaaServiceClient;
+import cn.metaq.uaa.dto.ClientDetailsDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.security.oauth2.provider.ClientDetails;
@@ -25,13 +24,13 @@ import java.util.stream.Collectors;
 public class CustomClientDetailsService implements ClientDetailsService {
 
     @Autowired
-    private ClientDetailsClient clientDetailsClient;
+    private UaaServiceClient uaaServiceClient;
 
     @Cacheable(cacheNames = {"uaa.clientDetails"}, key = "#clientId")
     @Override
     public ClientDetails loadClientByClientId(String clientId) throws ClientRegistrationException {
 
-        ClientDetailsDTO clientDetails = clientDetailsClient.loadClientByClientId(clientId);
+        ClientDetailsDTO clientDetails = uaaServiceClient.loadClientByClientId(clientId);
 
         String resourceIds = clientDetails.getResourceIds();
         String scopes = clientDetails.getScope();
@@ -41,7 +40,7 @@ public class CustomClientDetailsService implements ClientDetailsService {
         Integer refreshTokenValiditySeconds = clientDetails.getRefreshTokenValiditySeconds();
         Integer accessTokenValiditySeconds = clientDetails.getAccessTokenValiditySeconds();
         String clientSecret = clientDetails.getClientSecret();
-        Set<String> authoritySet = clientDetailsClient.loadAuthorityByClientId(clientId);
+        Set<String> authoritySet = uaaServiceClient.loadAuthorityByClientId(clientId);
         String authorities = "";
 
         if (CollectionUtils.isEmpty(authoritySet)) {

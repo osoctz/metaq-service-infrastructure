@@ -27,7 +27,17 @@ spring:
   redis:
     database: 0
     host: uaa.metaq.cn
-    port: 16379
+    port: 6379
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
+        requestInterceptors:
+          - cn.metaq.fegin.authz.interceptor.FeignClientsRequestInterceptor
+
 
 security:
   oauth2:
@@ -37,6 +47,8 @@ security:
 
 server:
   port: 8001
+  servlet:
+    context-path: /auth
 
 eureka:
   client:

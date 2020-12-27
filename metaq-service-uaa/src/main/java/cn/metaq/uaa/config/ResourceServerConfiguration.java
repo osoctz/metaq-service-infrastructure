@@ -23,28 +23,13 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
-        //super.configure(http);
-//        http.csrf().disable()
-//                .requestMatchers().antMatchers("**")
-//                .and()
-//                .authorizeRequests().antMatchers("/login",
-//                "/api/**",
-//                "/swagger-resources/**",
-//                "/configuration/**",
-//                "/webjars/**",
-//                "/actuator/**",
-//                "/**/*.html",
-//                "/favicon.ico",
-//                "/**/*.css",
-//                "/v2/**",
-//                "/**/*.js").permitAll().and()
-//                .authorizeRequests()
-//                .antMatchers("**").authenticated();
 
         http.csrf().disable()
-                .requestMatchers().antMatchers("/current")
+//                .antMatcher("/login")
+//                .antMatcher("/oauth/**")
+                .requestMatchers().antMatchers("/oauth/**","/login","/current")
                 .and()
-                .authorizeRequests().antMatchers("/login","/oauth/**").permitAll()
+                .authorizeRequests().antMatchers("/login","/oauth/**","/current").permitAll()
                 .and()
                 .authorizeRequests()
                 .anyRequest().authenticated();

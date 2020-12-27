@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.oauth2.common.OAuth2AccessToken;
 import org.springframework.security.oauth2.common.exceptions.InvalidGrantException;
 import org.springframework.security.oauth2.common.util.OAuth2Utils;
@@ -42,6 +43,8 @@ public class LoginController {
                             parameters.get(OAuth2Utils.CLIENT_ID),
                             parameters.get("client_secret"),
                             grantedAuthorities),parameters);
+
+            SecurityContextHolder.getContext().getAuthentication().getPrincipal();
             return  Result.ok(responseEntity.getBody());
         }catch (InvalidGrantException e){
             log.error("login error  用户名密码不正确 ....",e);

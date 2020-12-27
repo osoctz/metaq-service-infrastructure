@@ -48,8 +48,8 @@
 
         <dependency>
             <groupId>cn.metaq</groupId>
-            <artifactId>metaq-clientdetails-service-client</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <artifactId>metaq-common-feign-client</artifactId>
+            <version>${metaq.version}</version>
         </dependency>
 
         <dependency>
