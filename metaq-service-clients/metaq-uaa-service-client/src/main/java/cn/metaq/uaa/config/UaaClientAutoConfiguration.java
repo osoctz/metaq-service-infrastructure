@@ -1,4 +1,4 @@
-package cn.metaq.clientdetails.config;
+package cn.metaq.uaa.config;
 
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Configuration;
@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
  * @since 1.0
  */
 @Configuration
-@EnableFeignClients(basePackages = "cn.metaq.clientdetails")
-public class ClientdetailsClientAutoConfiguration {
+@EnableFeignClients(basePackages = "cn.metaq.uaa")
+public class UaaClientAutoConfiguration {
 
 }

@@ -1,4 +1,4 @@
-package cn.metaq.clientdetails.dto;
+package cn.metaq.uaa.dto;
 
 import cn.metaq.common.core.IDto;
 import lombok.Getter;
@@ -17,6 +17,8 @@ public class ClientDetailsDTO implements IDto{
 	private String resourceIds;
 
 	private String scope;
+
+	private String authorities;
 
 	/**
 	 * authorizedGrantTypes

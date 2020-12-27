@@ -1,11 +1,11 @@
 package cn.metaq.uaa.client;
 
+import cn.metaq.common.web.annotation.IgnoreResultWrapper;
 import cn.metaq.uaa.dto.AuthorityDTO;
+import cn.metaq.uaa.dto.ClientDetailsDTO;
 import cn.metaq.uaa.dto.UserDTO;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Set;
@@ -16,10 +16,12 @@ public interface UaaServiceClient {
     @RequestMapping(value = "users/authorities", method = RequestMethod.GET)
     Set<String> loadAuthorityByUsername(@RequestParam(value = "username") String username);
 
-    @RequestMapping(value = "authorities", method = RequestMethod.GET)
-    List<AuthorityDTO> list();
+    @RequestMapping(value = "clients/authorities", method = RequestMethod.GET)
+    Set<String> loadAuthorityByClientId(@RequestParam(value ="clientId") String clientId);
 
     @RequestMapping(value = "users", method = RequestMethod.GET)
     UserDTO loadUserByUsername(@RequestParam(value = "username") String username);
 
+    @GetMapping("clients/{clientId}")
+    ClientDetailsDTO loadClientByClientId(@PathVariable(value ="clientId")  String clientId);
 }
