@@ -1,0 +1,43 @@
+spring:
+  application:
+    name: uaa-service
+
+  redis:
+    database: 0
+    host: uaa.metaq.cn
+    port: 6379
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka/
+  instance:
+    prefer-ip-address: true
+
+server:
+  port: 10005
+  servlet:
+    context-path: /sso3
+
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
+        requestInterceptors:
+          - cn.metaq.fegin.authz.interceptor.FeignClientsRequestInterceptor
+
+security:
+  oauth2:
+    resource:
+      user-info-uri: http://localhost:8001/auth/current
+    #      prefer-token-info: false
+    client:
+      client-id: sso1client
+      client-secret: $2a$10$SbXVue/L71VrFUxllYqTse3FoJ0HhItZW0wE0axHpCVcga/8lVzDq
+      access-token-uri: http://localhost:8001/auth/oauth/token
+      user-authorization-uri: http://localhost:8001/auth/oauth/authorize
+
+debug: true
