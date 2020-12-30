@@ -18,7 +18,7 @@ public class ClientDetailsDTO implements IDto{
 
 	private String scope;
 
-	private String authorities;
+//	private String authorities;
 
 	/**
 	 * authorizedGrantTypes

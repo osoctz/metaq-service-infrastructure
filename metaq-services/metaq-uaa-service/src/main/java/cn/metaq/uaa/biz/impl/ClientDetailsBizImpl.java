@@ -7,7 +7,9 @@ import cn.metaq.uaa.biz.ClientDetailsBiz;
 import cn.metaq.uaa.dao.ClientDetailsDao;
 import cn.metaq.uaa.domain.ClientDetails;
 import cn.metaq.uaa.dto.ClientDetailsDTO;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.domain.Specification;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
@@ -31,6 +33,28 @@ public class ClientDetailsBizImpl extends BaseBiz<ClientDetails, ClientDetailsDT
 
     @Resource
     private BaseTemplate template;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    @Override
+    public void save(ClientDetailsDTO entity) {
+
+        ClientDetails clientDetails=new ClientDetails();
+
+        clientDetails.setClientId(entity.getClientId());
+        clientDetails.setClientSecret(passwordEncoder.encode(entity.getClientSecret()));
+        clientDetails.setAccessTokenValiditySeconds(entity.getAccessTokenValiditySeconds());
+        clientDetails.setAutoApproveScopes(entity.getAutoApproveScopes());
+        clientDetails.setRefreshTokenValiditySeconds(entity.getRefreshTokenValiditySeconds());
+        clientDetails.setAdditionalInformation(entity.getAdditionalInformation());
+        clientDetails.setAuthorizedGrantTypes(entity.getAuthorizedGrantTypes());
+        clientDetails.setResourceIds(entity.getResourceIds());
+        clientDetails.setScope(entity.getScope());
+        clientDetails.setWebServerRedirectUri(entity.getWebServerRedirectUri());
+
+        repository.save(clientDetails);
+    }
 
     @Override
     public ClientDetails loadClientByClientId(String clientId) {

@@ -27,6 +27,12 @@ public class ClientDetailsController extends BaseController<ClientDetailsBiz> {
         return baseBiz.list(clientDetailsDTO, offset, limit);
     }
 
+    @PostMapping(value = "clients")
+    public void add(@RequestBody ClientDetailsDTO clientDetailsDTO){
+
+        baseBiz.save(clientDetailsDTO);
+    }
+
     @GetMapping("clients/{clientId}")
     @IgnoreResultWrapper
     public ClientDetails loadClientByClientId(@PathVariable String clientId){
