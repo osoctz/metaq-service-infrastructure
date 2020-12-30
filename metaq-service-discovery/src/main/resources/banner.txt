@@ -1,0 +1,8 @@
+${AnsiColor.BRIGHT_WHITE}
+   ___  _
+  / _ \(_)__ _______ _  _____ ______ __
+ / // / (_-</ __/ _ \ |/ / -_) __/ // /
+/____/_/___/\__/\___/___/\__/_/  \_, /
+                                /___/
+${AnsiColor.GREEN}
+Spring Boot       ${spring-boot.formatted-version}
