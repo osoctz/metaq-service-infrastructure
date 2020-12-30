@@ -6,7 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "GROUP")
+@Table(name = "`GROUP`")
 @Setter
 @Getter
 public class Group implements IEntity<Long>{
@@ -17,7 +17,7 @@ public class Group implements IEntity<Long>{
 	@Id
 	private Long id;
 
-	@Column(name = "type" )
+	@Column(name = "TYPE" )
 	private String type;
 
 	@Column(name = "NAME_CN" )

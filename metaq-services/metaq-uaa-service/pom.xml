@@ -42,16 +42,6 @@
             <artifactId>spring-cloud-starter-oauth2</artifactId>
         </dependency>
 
-<!--        <dependency>-->
-<!--            <groupId>cn.metaq</groupId>-->
-<!--            <artifactId>metaq-uaa-service-client</artifactId>-->
-<!--            <version>${metaq.version}</version>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>cn.metaq</groupId>-->
-<!--            <artifactId>metaq-common-feign-client</artifactId>-->
-<!--            <version>${metaq.version}</version>-->
-<!--        </dependency>-->
         <dependency>
             <groupId>cn.metaq</groupId>
             <artifactId>metaq-data-jpa-biz</artifactId>
@@ -62,6 +52,12 @@
             <artifactId>metaq-common-web-biz</artifactId>
             <version>${metaq.version}</version>
         </dependency>
+
+<!--        <dependency>-->
+<!--            <groupId>com.zhongcheng</groupId>-->
+<!--            <artifactId>dozer-biz-spring-boot-starter</artifactId>-->
+<!--            <version>1.0.0</version>-->
+<!--        </dependency>-->
 
         <dependency>
             <groupId>mysql</groupId>

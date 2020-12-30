@@ -10,6 +10,14 @@ public class GroupDTO implements IDto{
 
 	private Long id;
 
-	private String name;
+	private String type;
+
+	private String nameCn;
+
+	private String nameEn;
+
+	private String priority;
+
+	private Long pid;
 
 }

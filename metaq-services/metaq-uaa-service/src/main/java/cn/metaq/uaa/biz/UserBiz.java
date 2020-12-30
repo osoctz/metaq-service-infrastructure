@@ -4,6 +4,8 @@ import cn.metaq.data.Biz;
 import cn.metaq.uaa.domain.User;
 import cn.metaq.uaa.dto.UserDTO;
 
+import java.util.List;
+
 /**
  * UserBiz
  *
@@ -14,4 +16,10 @@ import cn.metaq.uaa.dto.UserDTO;
 public interface UserBiz extends Biz<User, UserDTO, Long> {
 
     User loadUserByUsername(String username);
+
+    UserDTO resetPassword(UserDTO userDTO);
+
+    void exchangeStatus(Long id);
+
+    List<UserDTO> listUserByGroup(Long groupId);
 }

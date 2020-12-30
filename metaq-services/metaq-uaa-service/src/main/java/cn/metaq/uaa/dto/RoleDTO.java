@@ -1,11 +1,15 @@
 package cn.metaq.uaa.dto;
 
 import cn.metaq.common.core.IDto;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Setter
 @Getter
+@AllArgsConstructor
+@NoArgsConstructor
 public class RoleDTO implements IDto{
 
 	/**
@@ -16,11 +20,11 @@ public class RoleDTO implements IDto{
 	/**
 	 * 角色名
 	 */
-	private String name;
+	private String nameCn;
 
 	/**
 	 * 角色编码
 	 */
-	private String code;
+	private String nameEn;
 
 }

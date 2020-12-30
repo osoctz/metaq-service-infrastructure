@@ -1,11 +1,15 @@
 package cn.metaq.uaa.dto;
 
 import cn.metaq.common.core.IDto;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Setter
 @Getter
+@AllArgsConstructor
+@NoArgsConstructor
 public class UserDTO implements IDto{
 
 	/**
