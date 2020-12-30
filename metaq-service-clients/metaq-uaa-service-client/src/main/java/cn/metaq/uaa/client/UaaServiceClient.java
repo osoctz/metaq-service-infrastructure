@@ -1,16 +1,13 @@
 package cn.metaq.uaa.client;
 
-import cn.metaq.common.web.annotation.IgnoreResultWrapper;
-import cn.metaq.uaa.dto.AuthorityDTO;
 import cn.metaq.uaa.dto.ClientDetailsDTO;
 import cn.metaq.uaa.dto.UserDTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.Set;
 
-@FeignClient(name = "uaa-service")
+@FeignClient(name = "uaa-srv")
 public interface UaaServiceClient {
 
     @RequestMapping(value = "users/authorities", method = RequestMethod.GET)

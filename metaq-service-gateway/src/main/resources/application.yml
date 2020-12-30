@@ -16,10 +16,16 @@ spring:
             - Path= /mobile/**
           filters:
             - StripPrefix=1
+        - id: uaa-srv
+          uri: lb://uaa-srv
+          predicates:
+            - Path= /uaa-srv/**
+          filters:
+            - StripPrefix=1
         - id: area-srv
           uri: lb://area-srv
           predicates:
-            - Path= /common/**
+            - Path= /areas/**
           filters:
             - StripPrefix=1
             - name: RequestRateLimiter
@@ -47,9 +53,9 @@ spring:
                   - java.io.IOException
                   - java.util.concurrent.TimeoutException
   redis:
-    host: 127.0.0.1
-    port: 6379
     database: 0
+    host: uaa.metaq.cn
+    port: 6379
 server:
   port: 7002
 
