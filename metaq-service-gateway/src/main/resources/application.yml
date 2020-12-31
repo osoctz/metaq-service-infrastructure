@@ -1,6 +1,10 @@
 spring:
   application:
     name: gateway
+  boot:
+    admin:
+      client:
+        url: http://localhost:7003
   cloud:
     gateway:
       routes:
@@ -77,3 +81,12 @@ hystrix:
           thread:
             timeoutInMilliseconds: 3000
   shareSecurityContext: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS

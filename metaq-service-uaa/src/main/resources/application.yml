@@ -1,7 +1,10 @@
 spring:
   application:
     name: uaa
-
+  boot:
+    admin:
+      client:
+        url: http://localhost:7003
   cache:
     type: redis
   datasource:
@@ -57,4 +60,11 @@ eureka:
   instance:
     prefer-ip-address: true
 
-debug: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS

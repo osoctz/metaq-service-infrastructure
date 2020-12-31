@@ -47,7 +47,9 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()
                 .antMatchers(HttpMethod.GET,"/favicon.ico").permitAll()//不鉴权
-                //.antMatchers("/current","/login","/oauth/**").permitAll() //鉴权端点不鉴权
+                .antMatchers("/actuator/**",
+                        "/instances",
+                        "/instances/*").permitAll() //监控admin端点不鉴权
                 .anyRequest().authenticated()
                 .and()
                 //.httpBasic()

@@ -1,7 +1,10 @@
 spring:
   application:
     name: uaa-srv
-
+  boot:
+    admin:
+      client:
+        url: http://localhost:7003
   redis:
     database: 0
     host: uaa.metaq.cn
@@ -57,4 +60,11 @@ security:
       access-token-uri: http://localhost:8001/auth/oauth/token
       user-authorization-uri: http://localhost:8001/auth/oauth/authorize
 
-debug: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS

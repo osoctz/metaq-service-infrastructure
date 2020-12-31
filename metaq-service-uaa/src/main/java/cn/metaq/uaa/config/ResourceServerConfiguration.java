@@ -29,7 +29,9 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
 //                .antMatcher("/oauth/**")
                 .requestMatchers().antMatchers("/oauth/**","/login","/current")
                 .and()
-                .authorizeRequests().antMatchers("/login","/oauth/**","/current").permitAll()
+                .authorizeRequests().antMatchers("/login",
+                "/oauth/**",
+                "/current").permitAll()
                 .and()
                 .authorizeRequests()
                 .anyRequest().authenticated();
