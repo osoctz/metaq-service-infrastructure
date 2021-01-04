@@ -8,6 +8,7 @@
 - 在网关实现服务异常重试机制
 - 基于security+oauth2实现用户的授权和鉴权，基于token的无状态服务
 - 实现feign client调用服务的token传递
+- 基于alibaba seata组件实现微服务的分布式事务  
 - 集成springBootAdmin
 
 ### 1.1 组件
