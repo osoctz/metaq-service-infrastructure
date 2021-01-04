@@ -9,6 +9,7 @@
 - 基于security+oauth2实现用户的授权和鉴权，基于token的无状态服务
 - 实现feign client调用服务的token传递
 - 基于alibaba seata组件实现微服务的分布式事务  
+- 实现基于角色的访问控制(RBAC)和基于客户端的访问控制(CBAC) 
 - 集成springBootAdmin
 
 ### 1.1 组件
