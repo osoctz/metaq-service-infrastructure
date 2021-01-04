@@ -1,4 +1,14 @@
-## 1 微服务基础设施
+## 微服务基础设施
+
+### 实现功能列表
+
+- 基于eureka实现微服务注册与发现中心
+- 基于Gateway实现网关及网关的熔断，服务降级
+- 基于redis令牌桶实现服务的限流
+- 在网关实现服务异常重试机制
+- 基于security+oauth2实现用户的授权和鉴权，基于token的无状态服务
+- 实现feign client调用服务的token传递
+- 集成springBootAdmin
 
 ### 1.1 组件
 
@@ -6,6 +16,7 @@
 
 - consul
 - eureka
+  高可用配置参考 https://github.com/osoctz/metaq-eureka-discovery.git
 - nacos
 
 #### 1.1.2 网关
@@ -45,8 +56,14 @@ Spring Cloud Alibaba 2.2.1 RELEASE对应的Spring Cloud Hoxton.SR3版本
 #### 1.1.5 服务监控
 
 ```markdown
+1.Spring boot Admin
+server 参见 metaq-service-monitor
 
-Grafana FlowCharting
+client 参见 metaq-service-uaa
+```
+```markdown
+
+2.Grafana FlowCharting
 https://www.jianshu.com/p/ba4faef24d11
 
 ```
