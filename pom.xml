@@ -29,6 +29,9 @@
         <alibaba-cloud.version>2.2.1.RELEASE</alibaba-cloud.version>
         <spring-boot-admin.version>2.3.1</spring-boot-admin.version>
         <metaq.version>1.0-SNAPSHOT</metaq.version>
+        <docker.image.prefix>mlamp1191</docker.image.prefix>
+        <docker.repository.url>registry.cn-hangzhou.aliyuncs.com</docker.repository.url>
+        <docker.repository.namespace>zhongcheng</docker.repository.namespace>
     </properties>
 
     <modules>
