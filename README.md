@@ -11,6 +11,8 @@
 - 基于alibaba seata组件实现微服务的分布式事务  
 - 实现基于角色的访问控制(RBAC)和基于客户端的访问控制(CBAC) 
 - 集成springBootAdmin
+- 集成swagger3.0
+- 实现基于maven插件构建docker镜像并推送至阿里云容器镜像库
 
 ### 1.1 组件
 
