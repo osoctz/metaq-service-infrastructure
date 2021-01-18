@@ -1,0 +1,8 @@
+type Query{
+    loadUserByUsername(username:String):User
+}
+
+type User{
+    id:ID
+    name:String
+}
