@@ -19,5 +19,6 @@
         <module>metaq-area-service</module>
         <module>metaq-mobile-service</module>
         <module>metaq-uaa-service</module>
+        <module>metaq-bff-service</module>
     </modules>
 </project>
