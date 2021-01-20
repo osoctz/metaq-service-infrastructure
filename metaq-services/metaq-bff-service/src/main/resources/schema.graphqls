@@ -1,8 +1,16 @@
 type Query{
-    loadUserByUsername(username:String):User
+    user(username:String):User
+    role(username:String):[Role]!
 }
 
 type User{
     id:ID
     name:String
+    roles:[Role!]!
+}
+
+type Role{
+    id:ID
+    nameCn:String
+    nameEn:String
 }
