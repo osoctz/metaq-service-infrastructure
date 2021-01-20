@@ -1,6 +1,10 @@
 spring:
   application:
     name: bff-srv
+  redis:
+    database: 0
+    host: uaa.metaq.cn
+    port: 6379
 eureka:
   client:
     service-url:
@@ -8,5 +12,34 @@ eureka:
   instance:
     prefer-ip-address: true
 
+security:
+  oauth2:
+    resource:
+      user-info-uri: http://localhost:8001/auth/current
+    #      prefer-token-info: false
+    client:
+      client-id: clientdetails
+      client-secret: $2a$10$xR9gilJBvsJpyggPgpYNve/8LoZUbXORtWSLmDF8yOaqu0C043a76
+      access-token-uri: http://localhost:8001/auth/oauth/token
+      user-authorization-uri: http://localhost:8001/auth/oauth/authorize
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
+        requestInterceptors:
+          - cn.metaq.fegin.authz.interceptor.FeignClientsRequestInterceptor
+
+
+#  okhttp:
+#    enabled: true
+  httpclient:
+    enabled: true
+#  hystrix:
+#    enabled: false
 server:
   port: 10006
+
+debug: true
