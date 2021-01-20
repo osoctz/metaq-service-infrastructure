@@ -62,4 +62,33 @@ public class RoleBizImpl extends BaseBiz<Role, RoleDTO, Long, RoleDao> implement
 
         return roles;
     }
+
+    @Override
+    public List<RoleDTO> list(Long userId) {
+
+        String jql="select new cn.metaq.uaa.dto.RoleDTO(role.id,role.nameCn,role.nameEn)  from Role r " +
+                "left join UserRole ur on r.id=ur.roleId " +
+                "where ur.userId=:userId";
+
+        Map<String, Object> params = new HashMap<>();
+        params.put("userId", userId);
+
+        List<RoleDTO> roles = template.list(RoleDTO.class, jql, params);
+        return roles;
+    }
+
+    @Override
+    public List<RoleDTO> list(List<String> usernames) {
+
+        String jql="select new cn.metaq.uaa.dto.RoleDTO(r.id,r.nameCn,r.nameEn)  from Role r " +
+                "left join UserRole ur on r.id=ur.roleId " +
+                "left join User user on ur.userId=user.id " +
+                "where user.username in (:usernames)";
+
+        Map<String, Object> params = new HashMap<>();
+        params.put("usernames", usernames);
+
+        List<RoleDTO> roles = template.list(RoleDTO.class, jql, params);
+        return roles;
+    }
 }

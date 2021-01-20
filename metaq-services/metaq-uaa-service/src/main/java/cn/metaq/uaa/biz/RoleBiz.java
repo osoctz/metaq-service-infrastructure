@@ -16,4 +16,8 @@ import java.util.List;
 public interface RoleBiz extends Biz<Role, RoleDTO, Long> {
 
     List<RoleDTO> listRoleByGroup(Long groupId);
+
+    List<RoleDTO> list(Long userId);
+
+    List<RoleDTO> list(List<String> usernames);
 }
