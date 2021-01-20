@@ -35,8 +35,8 @@ security:
       user-info-uri: http://localhost:8001/auth/current
     #      prefer-token-info: false
     client:
-      client-id: sso1client
-      client-secret: $2a$10$SbXVue/L71VrFUxllYqTse3FoJ0HhItZW0wE0axHpCVcga/8lVzDq
+      client-id: clientdetails
+      client-secret: $2a$10$xR9gilJBvsJpyggPgpYNve/8LoZUbXORtWSLmDF8yOaqu0C043a76
       access-token-uri: http://localhost:8001/auth/oauth/token
       user-authorization-uri: http://localhost:8001/auth/oauth/authorize
 

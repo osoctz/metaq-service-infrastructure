@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.List;
 
-@FeignClient(name = "uaa-service")
+@FeignClient(name = "uaa-srv")
 public interface UaaServiceClient {
 
     @RequestMapping(value = "authorities", method = RequestMethod.GET)
