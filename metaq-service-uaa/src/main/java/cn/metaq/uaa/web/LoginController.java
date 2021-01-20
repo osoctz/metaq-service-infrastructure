@@ -1,5 +1,6 @@
 package cn.metaq.uaa.web;
 
+import cn.metaq.common.web.annotation.IgnoreResultWrapper;
 import cn.metaq.common.web.dto.Result;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.oauth2.common.OAuth2AccessToken;
 import org.springframework.security.oauth2.common.exceptions.InvalidGrantException;
 import org.springframework.security.oauth2.common.util.OAuth2Utils;
@@ -25,9 +27,10 @@ public class LoginController {
     @Autowired
     private TokenEndpoint tokenEndpoint;
 
+    @IgnoreResultWrapper
     @GetMapping("/current")
-    public Result user(Principal user) {
-        return Result.ok(user);
+    public Principal user(Principal user) {
+        return user;
     }
 
     @PostMapping("/login")
