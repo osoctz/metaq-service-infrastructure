@@ -33,7 +33,12 @@
         <dependency>
             <groupId>cn.metaq</groupId>
             <artifactId>metaq-common-web-biz</artifactId>
+        </dependency>
 
+        <dependency>
+            <groupId>cn.metaq</groupId>
+            <artifactId>metaq-common-feign-client</artifactId>
+            <version>${metaq.version}</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
