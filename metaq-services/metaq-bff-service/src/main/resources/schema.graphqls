@@ -5,6 +5,7 @@ type Query{
 
 type User{
     id:ID
+    # 用户名称
     name:String
     roles:[Role!]!
 }

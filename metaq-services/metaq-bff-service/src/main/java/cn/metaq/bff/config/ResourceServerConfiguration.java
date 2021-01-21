@@ -34,6 +34,11 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
         http .csrf().disable()
                 .requestMatchers().antMatchers("**")
                 .and()
+                .authorizeRequests().antMatchers("/graphql",
+                "/actuator/**",
+                "/instances",
+                "/instances/*",
+                "/").permitAll().and()
                 .authorizeRequests()
                 .antMatchers("**").authenticated();
     }

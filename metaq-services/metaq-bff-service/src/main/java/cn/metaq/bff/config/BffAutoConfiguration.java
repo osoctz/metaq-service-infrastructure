@@ -15,7 +15,9 @@ import graphql.schema.idl.SchemaGenerator;
 import graphql.schema.idl.SchemaParser;
 import graphql.schema.idl.TypeDefinitionRegistry;
 import org.dataloader.DataLoader;
+import org.dataloader.DataLoaderOptions;
 import org.dataloader.DataLoaderRegistry;
+import org.dataloader.impl.DefaultCacheMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -46,7 +48,10 @@ public class BffAutoConfiguration {
     @Bean
     //@Scope(value = WebApplicationContext.SCOPE_APPLICATION, proxyMode = ScopedProxyMode.TARGET_CLASS)
     public DataLoaderRegistry dataLoaderRegistry() {
-        DataLoader<String, RoleDTO> roleLoader = DataLoader.newDataLoader(roleDataLoader);
+
+        DataLoaderOptions options = DataLoaderOptions.newOptions().setCacheMap(new DefaultCacheMap<String, Object>());
+
+        DataLoader<String, RoleDTO> roleLoader = DataLoader.newDataLoader(roleDataLoader,options);
         DataLoaderRegistry registry = new DataLoaderRegistry();
         registry.register("roleLoader", roleLoader);
         return registry;
