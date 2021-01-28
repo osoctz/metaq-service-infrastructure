@@ -1,6 +1,6 @@
 # 基础镜像使用java
 #FROM openjdk:11.0.4
-FROM adoptopenjdk/openjdk11:x86_64-alpine-jre-11.0.9_11
+FROM openjdk:11-jdk-slim
 # 作者
 MAINTAINER xxx <xxx@qq.com>
 # VOLUME 指定了临时文件目录为/tmp。
