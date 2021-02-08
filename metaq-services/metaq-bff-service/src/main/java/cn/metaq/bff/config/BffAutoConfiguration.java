@@ -57,25 +57,13 @@ public class BffAutoConfiguration {
         return registry;
     }
 
-//    /**
-//     * 监听器：监听HTTP请求事件
-//     * 解决RequestContextHolder.getRequestAttributes()空指针问题
-//     * @return
-//     */
-//    @Bean
-//    public RequestContextListener requestContextListener(){
-//        return new RequestContextListener();
-//    }
 
     @PostConstruct
     public void init() throws IOException {
+
         URL url = Resources.getResource("schema.graphqls");
         String sdl = Resources.toString(url, Charsets.UTF_8);
         GraphQLSchema graphQLSchema = buildSchema(sdl);
-
-//        DataLoader<String, RoleDTO> roleLoader = DataLoader.newDataLoader(roleDataLoader);
-//        DataLoaderRegistry registry = new DataLoaderRegistry();
-//        registry.register("roleLoader", roleLoader);
 
         DataLoaderDispatcherInstrumentationOptions options = DataLoaderDispatcherInstrumentationOptions
                 .newOptions().includeStatistics(true);
