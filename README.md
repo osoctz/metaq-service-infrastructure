@@ -1,6 +1,6 @@
 ## 微服务基础设施
 
-### 实现功能列表
+### List
 
 - 基于eureka实现微服务注册与发现中心
 - 基于Gateway实现网关及网关的熔断，服务降级
@@ -34,11 +34,11 @@
 - 漏桶法
 - 限流令牌桶
 
-##### 熔断
+###### 熔断
 
 [说明](metaq-service-gateway/README.md)
 
-##### 重试机制
+###### 重试机制
 
 [说明](metaq-service-gateway/README.md)
 
@@ -51,21 +51,23 @@
 
 #### 1.1.4 分布式事物
 
-```yaml
-版本映射关系
-Spring Cloud Alibaba 2.1.0 RELEASE对应的Spring Cloud Greenwich版本
-Spring Cloud Alibaba 2.2.0 RELEASE对应的Spring Cloud Hoxton.RELEASE版本
-Spring Cloud Alibaba 2.2.1 RELEASE对应的Spring Cloud Hoxton.SR3版本
-```
+##### 版本映射关系
+
+|  Spring Cloud Alibaba   | Spring Cloud  |
+|  ----  | ----  |
+| 2.1.0  | Greenwich |
+| 2.2.0  | Hoxton.RELEASE |
+| 2.2.1  | Hoxton.SR3 |
 
 #### 1.1.5 服务监控
 
-```markdown
-1.Spring boot Admin
-server 参见 metaq-service-monitor
+##### 版本映射关系
 
-client 参见 metaq-service-uaa
-```
+|  server   | client  |
+|  ----  | ----  |
+| metaq-service-monitor  | metaq-service-uaa |
+
+
 ```markdown
 
 2.Grafana FlowCharting
