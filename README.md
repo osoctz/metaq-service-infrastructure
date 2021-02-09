@@ -14,6 +14,7 @@
 - 集成swagger3.0
 - 实现基于maven插件构建docker镜像并推送至阿里云容器镜像库
 - 基于GraphQL-java实现BFF层
+- 单点登录
 
 ### 1.1 组件
 
