@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: sso-client1
+  thymeleaf:
+    cache: false
+    prefix: classpath:/views/
+    mode: HTML
+security:
+  basic:
+  oauth2:
+    resource:
+      user-info-uri: http://localhost:8001/auth/current
+    #      prefer-token-info: false
+    client:
+      client-id: client1
+      client-secret: client1
+      access-token-uri: http://localhost:8001/auth/oauth/token
+      user-authorization-uri: http://localhost:8001/auth/oauth/authorize
+
+server:
+  port: 10002
+  servlet:
+    context-path: /sso1
