@@ -22,7 +22,7 @@ import javax.servlet.http.HttpServletResponse;
 
 @Configuration
 @EnableWebSecurity
-//@Order(1)
+@Order(1)
 @AutoConfigureAfter({DetailsConfiguration.class})
 public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
@@ -38,22 +38,36 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
-        http.sessionManagement()
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                .and()
-                .exceptionHandling().authenticationEntryPoint((HttpServletRequest request, HttpServletResponse response, AuthenticationException e)->response.sendError(HttpServletResponse.SC_UNAUTHORIZED, e.getMessage()))
-                .and()
-                .requestMatchers().antMatchers("**")
+//        http.sessionManagement()
+//                .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
+//                .and()
+//                .exceptionHandling().authenticationEntryPoint((HttpServletRequest request, HttpServletResponse response, AuthenticationException e)->response.sendError(HttpServletResponse.SC_UNAUTHORIZED, e.getMessage()))
+//                .and()
+//                .requestMatchers().antMatchers("**")
+//                .and()
+//                .authorizeRequests()
+//                .antMatchers(HttpMethod.GET,"/favicon.ico").permitAll()//不鉴权
+//                .antMatchers("/actuator/**",
+//                        "/instances",
+//                        "/instances/*",
+//                        "/oauth/authorize").permitAll() //监控admin端点不鉴权
+//                .anyRequest().authenticated()
+////                .and()
+////                .formLogin().loginPage("/login").permitAll()
+//                .and()
+//                .csrf().disable();
+        http.requestMatchers()
+                .antMatchers("/login")
+//                .antMatchers("/current")
+                .antMatchers("/oauth/authorize")
+                .antMatchers("/")
                 .and()
                 .authorizeRequests()
-                .antMatchers(HttpMethod.GET,"/favicon.ico").permitAll()//不鉴权
-                .antMatchers("/actuator/**",
-                        "/instances",
-                        "/instances/*").permitAll() //监控admin端点不鉴权
-                .anyRequest().authenticated()
+                .anyRequest().authenticated()//所有请求都需身份认证
                 .and()
-                //.httpBasic()
-                .csrf().disable();
+                .formLogin().loginPage("/login").permitAll()    // 自定义登录页面，这里配置了 loginPage, 就会通过 LoginController 的 login 接口加载登录页面
+                .and().csrf().disable();
+
     }
 
     @Autowired

@@ -24,16 +24,21 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
     @Override
     public void configure(HttpSecurity http) throws Exception {
 
-        http.csrf().disable()
-//                .antMatcher("/login")
-//                .antMatcher("/oauth/**")
-                .requestMatchers().antMatchers("/oauth/**","/login","/current")
+//        http.csrf().disable()
+//                .requestMatchers().antMatchers("/oauth/**", "/login", "/current")
+//                .and()
+//                .authorizeRequests().antMatchers("/login",
+//                "/oauth/**").permitAll()
+//                .and()
+//                .authorizeRequests()
+//                .anyRequest().authenticated();
+        http.csrf().disable().requestMatchers().antMatchers("**")
                 .and()
-                .authorizeRequests().antMatchers("/login",
-                "/oauth/**").permitAll()
-                .and()
+                .authorizeRequests().antMatchers("/login"
+//                "/oauth/**",
+                ).permitAll().and()
                 .authorizeRequests()
-                .anyRequest().authenticated();
+                .antMatchers("**").authenticated();
     }
 
     @Bean
