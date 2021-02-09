@@ -19,5 +19,7 @@
         <module>metaq-tx1-service</module>
         <module>metaq-tx2-service</module>
         <module>metaq-sso1-service</module>
+        <module>metaq-sso-client1</module>
+        <module>metaq-sso-client2</module>
     </modules>
 </project>
