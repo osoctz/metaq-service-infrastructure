@@ -23,7 +23,7 @@
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
-<!--        <java.version>11.0.9</java.version>-->
+        <!--        <java.version>11.0.9</java.version>-->
         <spring-cloud.version>Hoxton.SR9</spring-cloud.version>
         <spring-boot.version>2.3.6.RELEASE</spring-boot.version>
         <alibaba-cloud.version>2.2.1.RELEASE</alibaba-cloud.version>
@@ -87,6 +87,15 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
+            <dependency>
+                <groupId>org.springframework.session</groupId>
+                <artifactId>spring-session-bom</artifactId>
+                <version>Corn-SR2</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 </project>
