@@ -5,6 +5,10 @@ spring:
     cache: false
     prefix: classpath:/views/
     mode: HTML
+  redis:
+    database: 0
+    host: 192.168.3.169
+    port: 6379
 security:
   basic:
   oauth2:
@@ -21,3 +25,4 @@ server:
   port: 10002
   servlet:
     context-path: /sso1
+
