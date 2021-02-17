@@ -73,4 +73,4 @@ management:
     health:
       show-details: ALWAYS
 
-debug: true
+#debug: true

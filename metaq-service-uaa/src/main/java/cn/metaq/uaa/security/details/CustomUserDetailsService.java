@@ -7,11 +7,15 @@ import cn.metaq.uaa.provider.domain.CustomUserDetails;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.util.CollectionUtils;
 
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -29,23 +33,29 @@ public class CustomUserDetailsService implements UserDetailsService {
 
         Set<String> authoritySet = uaaServiceClient.loadAuthorityByUsername(username);
 
-        CustomUserDetails userDetails = new CustomUserDetails();
+        User userDetails = new User(user.getUsername(),user.getPassword(),user.isEnabled(),true,true,true, new HashSet<>());
 
         log.info("user:{}",user);
-        userDetails.setEnabled(user.isEnabled());
-        userDetails.setUsername(user.getUsername());
-        userDetails.setPassword(user.getPassword());
-        userDetails.setName(user.getName());
+//        userDetails.setEnabled(user.isEnabled());
+//        userDetails.setUsername(user.getUsername());
+//        userDetails.setPassword(user.getPassword());
+//        userDetails.setName(user.getName());
+
 
         if (!CollectionUtils.isEmpty(authoritySet)) {
 
-            userDetails.setAuthorities(authoritySet.stream().map(authority -> {
+            userDetails = new User(user.getUsername(),
+                    user.getPassword(),
+                    user.isEnabled(),true,true,true,
+                    authoritySet.stream().map(authority -> new SimpleGrantedAuthority(authority)).collect(Collectors.toSet()));
 
-                CustomGrantedAuthority grantedAuthority = new CustomGrantedAuthority();
-                grantedAuthority.setAuthority(authority);
-
-                return grantedAuthority;
-            }).collect(Collectors.toSet()));
+//            userDetails.setAuthorities(authoritySet.stream().map(authority -> {
+//
+//                CustomGrantedAuthority grantedAuthority = new CustomGrantedAuthority();
+//                grantedAuthority.setAuthority(authority);
+//
+//                return grantedAuthority;
+//            }).collect(Collectors.toSet()));
 
         }
         return userDetails;
