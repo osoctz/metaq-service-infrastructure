@@ -3,7 +3,7 @@ spring:
     name: bff-srv
   redis:
     database: 0
-    host: uaa.metaq.cn
+    host: 192.168.3.11
     port: 6379
 eureka:
   client:
@@ -41,5 +41,3 @@ feign:
 #    enabled: false
 server:
   port: 10006
-
-debug: true
