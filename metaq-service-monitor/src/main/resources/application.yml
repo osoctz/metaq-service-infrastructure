@@ -1,12 +1,32 @@
 spring:
   application:
     name: monitor
+
+  boot:
+    admin:
+      client:
+        instance:
+          management-base-url: http://192.168.3.189:5100
+
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:7001/eureka/
+      defaultZone: http://192.168.3.189:5002/eureka/,http://192.168.3.189:5001/eureka/
   instance:
     prefer-ip-address: true
 
 server:
   port: 7003
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+  endpoint:
+    health:
+      show-details: ALWAYS
+
+
+
