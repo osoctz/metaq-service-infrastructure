@@ -28,21 +28,21 @@ public class ClientDetailsController extends BaseController<ClientDetailsBiz> {
     }
 
     @PostMapping(value = "clients")
-    public void add(@RequestBody ClientDetailsDTO clientDetailsDTO){
+    public void add(@RequestBody ClientDetailsDTO clientDetailsDTO) {
 
         baseBiz.save(clientDetailsDTO);
     }
 
     @GetMapping("clients/{clientId}")
     @IgnoreResultWrapper
-    public ClientDetails loadClientByClientId(@PathVariable String clientId){
+    public ClientDetails loadClientByClientId(@PathVariable String clientId) {
 
         return baseBiz.loadClientByClientId(clientId);
     }
 
     @GetMapping("clients/authorities")
     @IgnoreResultWrapper
-    public Set<String> loadAuthorityByClientId(@RequestParam String clientId){
+    public Set<String> loadAuthorityByClientId(@RequestParam String clientId) {
 
         return baseBiz.loadAuthorityByClientId(clientId);
     }

@@ -4,14 +4,14 @@ spring:
   boot:
     admin:
       client:
-        url: http://localhost:7003
+        url: http://192.168.3.189:5100
   redis:
     database: 0
-    host: uaa.metaq.cn
+    host: 192.168.3.189
     port: 6379
 
   datasource:
-    url: jdbc:mysql://uaa.metaq.cn:13306/uaa_srv?useSSL=false&allowPublicKeyRetrieval=true&useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://127.0.0.1:13306/uaa_srv?useSSL=false&allowPublicKeyRetrieval=true&useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
     username: root
     password: 123456
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -29,11 +29,11 @@ spring:
     hibernate:
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
-
+      dialect: org.hibernate.dialec.MySQL8Dialect
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:7001/eureka/
+      defaultZone: http://192.168.3.189:5001/eureka/,http://192.168.3.189:5002/eureka/
   instance:
     prefer-ip-address: true
 
