@@ -24,12 +24,12 @@ public class RoleController extends BaseController<RoleBiz> {
     @PostMapping("roles/pages")
     public Pagination<Role> list(@RequestBody RoleDTO roleDTO, int offset, int limit) {
 
-        return baseBiz.list(roleDTO, offset, limit);
+        return baseBiz.list(Role.class,roleDTO, offset, limit);
     }
 
     @GetMapping(value = "roles/{id}")
     public Role view(@PathVariable Long id) {
-        return baseBiz.getOneById(id);
+        return baseBiz.getOneById(Role.class,id);
     }
 
     @GetMapping(value = "roles")

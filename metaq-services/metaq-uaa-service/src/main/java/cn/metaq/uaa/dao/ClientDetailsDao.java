@@ -1,6 +1,6 @@
 package cn.metaq.uaa.dao;
 
-import cn.metaq.data.jpa.BaseRepository;
+import cn.metaq.data.jpa.BaseDao;
 import cn.metaq.uaa.domain.ClientDetails;
 import org.springframework.stereotype.Repository;
 
@@ -12,5 +12,5 @@ import org.springframework.stereotype.Repository;
  * @since 1.0
  */
 @Repository
-public interface ClientDetailsDao extends BaseRepository<ClientDetails,Long> {
+public interface ClientDetailsDao extends BaseDao<ClientDetails,Long> {
 }

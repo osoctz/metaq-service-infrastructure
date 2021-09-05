@@ -14,5 +14,5 @@ import org.springframework.stereotype.Service;
  * @since 1.0
  */
 @Service
-public class ProductPayBizImpl extends BaseBiz<ProductPay, ProductPay, Long, ProductPayDao> implements ProductPayBiz {
+public class ProductPayBizImpl extends BaseBiz<ProductPay, Long, ProductPayDao> implements ProductPayBiz {
 }

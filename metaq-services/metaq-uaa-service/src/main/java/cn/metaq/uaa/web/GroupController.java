@@ -23,7 +23,7 @@ public class GroupController extends BaseController<GroupBiz> {
     @PostMapping("groups/pages")
     public Pagination<Group> list(@RequestBody GroupDTO groupDTO, int offset, int limit) {
 
-        return baseBiz.list(groupDTO, offset, limit);
+        return baseBiz.list(Group.class,groupDTO, offset, limit);
     }
 
     /**

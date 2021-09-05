@@ -36,7 +36,7 @@ public class UserController extends BaseController<UserBiz> {
     @PostMapping("users/pages")
     public Pagination<User> list(@RequestBody UserDTO userDTO, int offset, int limit) {
 
-        return baseBiz.list(userDTO, offset, limit);
+        return baseBiz.list(User.class,userDTO, offset, limit);
     }
 
     /**

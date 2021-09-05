@@ -4,7 +4,6 @@ import cn.metaq.data.jpa.BaseBiz;
 import cn.metaq.data.jpa.BaseTemplate;
 import cn.metaq.uaa.biz.AuthorityBiz;
 import cn.metaq.uaa.dao.AuthorityDao;
-import cn.metaq.uaa.domain.Authority;
 import cn.metaq.uaa.dto.AuthorityDTO;
 import org.springframework.stereotype.Service;
 
@@ -23,7 +22,7 @@ import java.util.stream.Collectors;
  * @since 1.0
  */
 @Service
-public class AuthorityBizImpl extends BaseBiz<Authority, AuthorityDTO, Long, AuthorityDao> implements AuthorityBiz {
+public class AuthorityBizImpl extends BaseBiz<AuthorityDTO, Long, AuthorityDao> implements AuthorityBiz {
 
     @Resource
     private BaseTemplate template;

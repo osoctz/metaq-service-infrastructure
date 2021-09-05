@@ -22,6 +22,6 @@ public class MobileController extends BaseController<MobileBiz> {
     @GetMapping("mobiles")
     public List<Mobile> list(MobileDTO mobileDTO) {
 
-        return baseBiz.list(mobileDTO);
+        return baseBiz.list(Mobile.class,mobileDTO);
     }
 }

@@ -13,7 +13,7 @@ import java.util.List;
  * @date 2020/12/14 下午3:14
  * @since 1.0
  */
-public interface UserBiz extends Biz<User, UserDTO, Long> {
+public interface UserBiz extends Biz<UserDTO, Long> {
 
     User loadUserByUsername(String username);
 

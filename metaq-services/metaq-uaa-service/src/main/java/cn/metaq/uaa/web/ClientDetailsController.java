@@ -24,7 +24,7 @@ public class ClientDetailsController extends BaseController<ClientDetailsBiz> {
     @PostMapping("clients/pages")
     public Pagination<ClientDetails> list(@RequestBody ClientDetailsDTO clientDetailsDTO, int offset, int limit) {
 
-        return baseBiz.list(clientDetailsDTO, offset, limit);
+        return baseBiz.list(ClientDetails.class,clientDetailsDTO, offset, limit);
     }
 
     @PostMapping(value = "clients")

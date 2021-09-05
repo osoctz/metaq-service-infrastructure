@@ -21,9 +21,8 @@ import java.util.List;
  * @since 1.0
  */
 @Service
-public class AreaBizImpl extends BaseBiz<Area, AreaDTO, Long, AreaDao> implements AreaBiz {
+public class AreaBizImpl extends BaseBiz<AreaDTO, Long, AreaDao> implements AreaBiz {
 
-    @Override
     public Specification<Area> map(AreaDTO areaDTO) {
 
         return (Specification<Area>) (root, cq, cb) -> {

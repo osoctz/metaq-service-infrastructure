@@ -15,7 +15,7 @@ import java.util.concurrent.CompletionStage;
 import java.util.stream.Collectors;
 
 @DgsDataLoader(name = "roles")
-public class RoleDataLoader implements BatchLoader<String,Role> {
+public class RoleDataLoader implements BatchLoader<String, Role> {
 
     private static final Logger log = LogManager.getLogger(RoleDataLoader.class);
 
@@ -30,13 +30,13 @@ public class RoleDataLoader implements BatchLoader<String,Role> {
 
         OAuth2AuthenticationDetails details = (OAuth2AuthenticationDetails) SecurityContextHolder.getContext().getAuthentication().getDetails();
 
-        log.info("token:{}",details.getTokenType()+" "+details.getTokenValue());
+        log.info("token:{}", details.getTokenType() + " " + details.getTokenValue());
 
-        return CompletableFuture.supplyAsync(() -> uaaServiceClient.list(details.getTokenType()+" "+details.getTokenValue(),usernames).stream()
-        .map(s-> Role.newBuilder()
-                .id(String.valueOf(s.getId()))
-                .nameCn(s.getNameCn())
-                .nameEn(s.getNameEn())
-                .build()).collect(Collectors.toList()));
+        return CompletableFuture.supplyAsync(() -> uaaServiceClient.list(details.getTokenType() + " " + details.getTokenValue(), usernames).stream()
+                .map(s -> Role.newBuilder()
+                        .id(String.valueOf(s.getId()))
+                        .nameCn(s.getNameCn())
+                        .nameEn(s.getNameEn())
+                        .build()).collect(Collectors.toList()));
     }
 }

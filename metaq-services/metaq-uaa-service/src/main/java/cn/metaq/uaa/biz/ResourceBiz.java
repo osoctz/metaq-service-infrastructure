@@ -1,7 +1,6 @@
 package cn.metaq.uaa.biz;
 
 import cn.metaq.data.Biz;
-import cn.metaq.uaa.domain.Resource;
 import cn.metaq.uaa.dto.ResourceDTO;
 
 import java.util.List;
@@ -13,7 +12,7 @@ import java.util.List;
  * @date 2020/12/14 下午3:24
  * @since 1.0
  */
-public interface ResourceBiz extends Biz<Resource, ResourceDTO, Long> {
+public interface ResourceBiz extends Biz<ResourceDTO, Long> {
 
     List<ResourceDTO> listResourceByGroup(Long groupId);
 }

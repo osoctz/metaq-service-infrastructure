@@ -29,6 +29,6 @@ public class AuthorityController extends BaseController<AuthorityBiz> {
     @IgnoreResultWrapper
     public List<Authority> loadAuthorityByClientId() {
 
-        return baseBiz.list();
+        return baseBiz.list(Authority.class);
     }
 }

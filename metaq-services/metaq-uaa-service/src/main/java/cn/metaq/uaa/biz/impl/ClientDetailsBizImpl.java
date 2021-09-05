@@ -29,7 +29,7 @@ import java.util.stream.Collectors;
  * @since 1.0
  */
 @Service
-public class ClientDetailsBizImpl extends BaseBiz<ClientDetails, ClientDetailsDTO, Long, ClientDetailsDao> implements ClientDetailsBiz {
+public class ClientDetailsBizImpl extends BaseBiz<ClientDetailsDTO, Long, ClientDetailsDao> implements ClientDetailsBiz {
 
     @Resource
     private BaseTemplate template;
@@ -53,13 +53,13 @@ public class ClientDetailsBizImpl extends BaseBiz<ClientDetails, ClientDetailsDT
         clientDetails.setScope(entity.getScope());
         clientDetails.setWebServerRedirectUri(entity.getWebServerRedirectUri());
 
-        repository.save(clientDetails);
+        dao.save(clientDetails);
     }
 
     @Override
     public ClientDetails loadClientByClientId(String clientId) {
 
-        return repository.findOne(new Specification<ClientDetails>() {
+        return dao.findOne(new Specification<ClientDetails>() {
             @Override
             public Predicate toPredicate(Root<ClientDetails> root, CriteriaQuery<?> cq, CriteriaBuilder cb) {
                 return cb.equal(root.get("clientId"), clientId);

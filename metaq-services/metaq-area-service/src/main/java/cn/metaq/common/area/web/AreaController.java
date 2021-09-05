@@ -26,7 +26,7 @@ public class AreaController extends BaseController<AreaBiz> {
     @PostMapping("pages")
     public Pagination<Area> list(@RequestBody(required = false) AreaDTO areaDTO, int offset, int limit){
 
-        return baseBiz.list(areaDTO,offset,limit);
+        return baseBiz.list(Area.class,areaDTO,offset,limit);
     }
 
     @GetMapping("{parent}")
@@ -35,7 +35,7 @@ public class AreaController extends BaseController<AreaBiz> {
         AreaDTO areaDTO=new AreaDTO();
         areaDTO.setParent(parent);
 
-        return baseBiz.list(areaDTO);
+        return baseBiz.list(Area.class,areaDTO);
     }
 
     @GetMapping("/retry")

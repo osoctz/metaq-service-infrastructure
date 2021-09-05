@@ -28,7 +28,7 @@ import java.util.stream.Collectors;
  * @since 1.0
  */
 @Service
-public class GroupBizImpl extends BaseBiz<Group, GroupDTO, Long, GroupDao> implements GroupBiz {
+public class GroupBizImpl extends BaseBiz<GroupDTO, Long, GroupDao> implements GroupBiz {
     @Override
     public void save(GroupDTO entity) {
 
@@ -40,13 +40,13 @@ public class GroupBizImpl extends BaseBiz<Group, GroupDTO, Long, GroupDao> imple
         group.setPriority(entity.getPriority());
         group.setPid(entity.getPid());
 
-        repository.save(group);
+        dao.save(group);
     }
 
     @Override
     public void update(GroupDTO entity) {
 
-        Group group = repository.findById(entity.getId()).orElseThrow();
+        Group group = dao.findById(entity.getId()).orElseThrow();
 
         group.setNameCn(entity.getNameCn());
         group.setNameEn(entity.getNameEn());
@@ -54,16 +54,16 @@ public class GroupBizImpl extends BaseBiz<Group, GroupDTO, Long, GroupDao> imple
         group.setPriority(entity.getPriority());
         group.setPid(entity.getPid());
 
-        repository.save(group);
+        dao.save(group);
     }
 
     @Override
     public List<GroupNodeDTO> listGroupByType(Integer type) {
         //查询根节点 pid=null
-        List<Group> groups = repository.findAll((Specification<Group>) (root, cq, cb) -> cb.and(cb.equal(root.get("type"), type), root.get("pid").isNull()));
+        List<Group> groups = dao.findAll((Specification<Group>) (root, cq, cb) -> cb.and(cb.equal(root.get("type"), type), root.get("pid").isNull()));
         //查询子节点
         Sort.Order order = new Sort.Order(Sort.Direction.ASC, "priority");
-        List<Group> subGroups = repository.findAll((Specification<Group>) (root, cq, cb) -> cb.and(cb.equal(root.get("type"), type), root.get("pid").isNotNull()), Sort.by(order));
+        List<Group> subGroups = dao.findAll((Specification<Group>) (root, cq, cb) -> cb.and(cb.equal(root.get("type"), type), root.get("pid").isNotNull()), Sort.by(order));
         //分组
         Map<Long, List<Group>> subGroupMap = subGroups.stream().collect(Collectors.groupingBy(Group::getPid));
 

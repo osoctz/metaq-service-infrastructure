@@ -21,7 +21,7 @@ import java.util.Map;
  * @since 1.0
  */
 @Service
-public class RoleBizImpl extends BaseBiz<Role, RoleDTO, Long, RoleDao> implements RoleBiz {
+public class RoleBizImpl extends BaseBiz<RoleDTO, Long, RoleDao> implements RoleBiz {
 
     @Resource
     private BaseTemplate template;
@@ -34,18 +34,18 @@ public class RoleBizImpl extends BaseBiz<Role, RoleDTO, Long, RoleDao> implement
         role.setNameCn(entity.getNameCn());
         role.setNameEn(entity.getNameEn());
 
-        repository.save(role);
+        dao.save(role);
     }
 
     @Override
     public void update(RoleDTO entity) {
 
-        Role role = repository.getOne(entity.getId());
+        Role role = dao.getOne(entity.getId());
 
         role.setNameCn(entity.getNameCn());
         role.setNameEn(entity.getNameEn());
 
-        repository.save(role);
+        dao.save(role);
     }
 
     @Override

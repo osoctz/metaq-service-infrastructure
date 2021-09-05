@@ -34,8 +34,8 @@ eureka:
   client:
     service-url:
       defaultZone: http://192.168.3.189:5001/eureka/,http://192.168.3.189:5002/eureka/
-  instance:
-    prefer-ip-address: true
+#  instance:
+#    prefer-ip-address: true
 
 server:
   port: 10004

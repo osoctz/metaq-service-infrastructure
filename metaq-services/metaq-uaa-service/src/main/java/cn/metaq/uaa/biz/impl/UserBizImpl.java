@@ -29,7 +29,7 @@ import java.util.Map;
  * @since 1.0
  */
 @Service
-public class UserBizImpl extends BaseBiz<User, UserDTO, Long, UserDao> implements UserBiz {
+public class UserBizImpl extends BaseBiz<UserDTO, Long, UserDao> implements UserBiz {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -49,14 +49,14 @@ public class UserBizImpl extends BaseBiz<User, UserDTO, Long, UserDao> implement
         user.setLastPasswordResetDate(LocalDateTime.now());
         user.setEnabled(true);
 
-        repository.save(user);
+        dao.save(user);
         entity.setId(user.getId());
     }
 
     @Override
     public void update(UserDTO entity) {
 
-        User user = repository.getOne(entity.getId());
+        User user = dao.getOne(entity.getId());
 
         user.setName(entity.getName());
         user.setUsername(entity.getUsername());
@@ -65,13 +65,13 @@ public class UserBizImpl extends BaseBiz<User, UserDTO, Long, UserDao> implement
         user.setLastPasswordResetDate(LocalDateTime.now());
         //user.setEnabled(true);
 
-        repository.save(user);
+        dao.save(user);
     }
 
     @Override
     public User loadUserByUsername(String username) {
 
-        return repository.findOne(new Specification<User>() {
+        return dao.findOne(new Specification<User>() {
             @Override
             public Predicate toPredicate(Root<User> root, CriteriaQuery<?> cq, CriteriaBuilder cb) {
                 return cb.equal(root.get("username"), username);
@@ -87,7 +87,7 @@ public class UserBizImpl extends BaseBiz<User, UserDTO, Long, UserDao> implement
         user.setPassword(passwordEncoder.encode(userDTO.getPassword()));
         user.setLastPasswordResetDate(LocalDateTime.now());
 
-        repository.save(user);
+        dao.save(user);
 
         return userDTO;
     }
@@ -95,10 +95,10 @@ public class UserBizImpl extends BaseBiz<User, UserDTO, Long, UserDao> implement
     @Override
     public void exchangeStatus(Long id) {
 
-        User user = this.getOneById(id);
+        User user = this.getOneById(User.class,id);
         user.setEnabled(!user.isEnabled());
 
-        repository.save(user);
+        dao.save(user);
     }
 
     @Override

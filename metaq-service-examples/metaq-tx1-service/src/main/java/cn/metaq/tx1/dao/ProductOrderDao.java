@@ -1,6 +1,6 @@
 package cn.metaq.tx1.dao;
 
-import cn.metaq.data.jpa.BaseRepository;
+import cn.metaq.data.jpa.BaseDao;
 import cn.metaq.tx1.domain.ProductOrder;
 import org.springframework.stereotype.Repository;
 
@@ -12,5 +12,5 @@ import org.springframework.stereotype.Repository;
  * @since 1.0
  */
 @Repository
-public interface ProductOrderDao extends BaseRepository<ProductOrder,Long> {
+public interface ProductOrderDao extends BaseDao<ProductOrder,Long> {
 }

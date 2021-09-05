@@ -14,5 +14,5 @@ import org.springframework.stereotype.Service;
  * @since 1.0
  */
 @Service
-public class ProductOrderBizImpl extends BaseBiz<ProductOrder, ProductOrder, Long, ProductOrderDao> implements ProductOrderBiz {
+public class ProductOrderBizImpl extends BaseBiz<ProductOrder, Long, ProductOrderDao> implements ProductOrderBiz {
 }

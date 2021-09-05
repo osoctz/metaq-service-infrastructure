@@ -8,7 +8,7 @@ import cn.metaq.uaa.dto.UserRoleDTO;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserRoleBizImpl extends BaseBiz<UserRole, UserRoleDTO, Long, UserRoleDao> implements UserRoleBiz {
+public class UserRoleBizImpl extends BaseBiz<UserRoleDTO, Long, UserRoleDao> implements UserRoleBiz {
 
     @Override
     public void save(UserRoleDTO entity) {
@@ -18,7 +18,7 @@ public class UserRoleBizImpl extends BaseBiz<UserRole, UserRoleDTO, Long, UserRo
         userRole.setUserId(userRole.getUserId());
         userRole.setRoleId(userRole.getRoleId());
 
-        repository.save(userRole);
+        dao.save(userRole);
 
         entity.setId(userRole.getId());
     }

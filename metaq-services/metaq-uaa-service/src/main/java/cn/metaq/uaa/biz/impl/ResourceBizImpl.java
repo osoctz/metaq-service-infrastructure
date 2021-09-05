@@ -21,7 +21,7 @@ import java.util.Map;
  * @since 1.0
  */
 @Service
-public class ResourceBizImpl extends BaseBiz<Resource, ResourceDTO, Long, ResourceDao> implements ResourceBiz {
+public class ResourceBizImpl extends BaseBiz<ResourceDTO, Long, ResourceDao> implements ResourceBiz {
 
     @javax.annotation.Resource
     private BaseTemplate template;
@@ -37,20 +37,20 @@ public class ResourceBizImpl extends BaseBiz<Resource, ResourceDTO, Long, Resour
         resource.setPriority(entity.getPriority());
         resource.setType(entity.getType());
 
-        repository.save(resource);
+        dao.save(resource);
     }
 
     @Override
     public void update(ResourceDTO entity) {
 
-        Resource resource=repository.findById(entity.getId()).orElseThrow();
+        Resource resource=dao.findById(entity.getId()).orElseThrow();
 
         resource.setNameCn(entity.getNameCn());
         resource.setNameEn(entity.getNameEn());
         resource.setPriority(entity.getPriority());
         resource.setType(entity.getType());
 
-        repository.save(resource);
+        dao.save(resource);
     }
 
     @Override

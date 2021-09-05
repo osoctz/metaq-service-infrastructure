@@ -21,21 +21,20 @@ import java.util.List;
  * @since 1.0
  */
 @Service
-public class MobileBizImpl extends BaseBiz<Mobile, MobileDTO, Long, MobileDao> implements MobileBiz {
+public class MobileBizImpl extends BaseBiz<MobileDTO, Long, MobileDao> implements MobileBiz {
 
     public Mobile findOneByPhoneNumber(String phoneNumber) {
 
-        return repository.findOne((Specification<Mobile>) (root, cq, cb)
+        return dao.findOne((Specification<Mobile>) (root, cq, cb)
                 -> cb.equal(root.get("phoneNumber"), phoneNumber)).orElseThrow();
     }
 
     public List<Mobile> findAllByAreaCode(String areaCode) {
 
-        return repository.findAll((Specification<Mobile>) (root, cq, cb)
+        return dao.findAll((Specification<Mobile>) (root, cq, cb)
                 -> cb.equal(root.get("areaCode"), areaCode));
     }
 
-    @Override
     public Specification map(MobileDTO mobileDTO) {
 
         return (Specification<Mobile>) (root, cq, cb) -> {

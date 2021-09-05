@@ -1,7 +1,7 @@
 package cn.metaq.common.mobile.dao;
 
 import cn.metaq.common.mobile.domain.Mobile;
-import cn.metaq.data.jpa.BaseRepository;
+import cn.metaq.data.jpa.BaseDao;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -12,5 +12,5 @@ import org.springframework.stereotype.Repository;
  * @since 1.0
  */
 @Repository
-public interface MobileDao extends BaseRepository<Mobile,Long> {
+public interface MobileDao extends BaseDao<Mobile,Long> {
 }

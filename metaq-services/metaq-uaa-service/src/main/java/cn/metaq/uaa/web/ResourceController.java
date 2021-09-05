@@ -16,7 +16,7 @@ public class ResourceController extends BaseController<ResourceBiz> {
     @PostMapping("resources/pages")
     public Pagination<Resource> list(@RequestBody ResourceDTO resourceDTO, int offset, int limit) {
 
-        return baseBiz.list(resourceDTO, offset, limit);
+        return baseBiz.list(Resource.class,resourceDTO, offset, limit);
     }
 
     @PostMapping(value = "resources")

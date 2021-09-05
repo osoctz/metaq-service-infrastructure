@@ -1,6 +1,6 @@
 package cn.metaq.tx2.dao;
 
-import cn.metaq.data.jpa.BaseRepository;
+import cn.metaq.data.jpa.BaseDao;
 import cn.metaq.tx2.domain.ProductPay;
 import org.springframework.stereotype.Repository;
 
@@ -12,5 +12,5 @@ import org.springframework.stereotype.Repository;
  * @since 1.0
  */
 @Repository
-public interface ProductPayDao extends BaseRepository<ProductPay,Long> {
+public interface ProductPayDao extends BaseDao<ProductPay,Long> {
 }

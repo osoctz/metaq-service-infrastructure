@@ -13,7 +13,7 @@ import java.util.Set;
  * @date 2020/12/14 下午4:14
  * @since 1.0
  */
-public interface ClientDetailsBiz extends Biz<ClientDetails, ClientDetailsDTO, Long> {
+public interface ClientDetailsBiz extends Biz<ClientDetailsDTO, Long> {
 
     ClientDetails loadClientByClientId(String clientId);
 
