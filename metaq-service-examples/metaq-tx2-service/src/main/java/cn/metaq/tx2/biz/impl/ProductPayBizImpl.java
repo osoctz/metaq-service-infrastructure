@@ -4,6 +4,7 @@ import cn.metaq.data.jpa.BaseBiz;
 import cn.metaq.tx2.biz.ProductPayBiz;
 import cn.metaq.tx2.dao.ProductPayDao;
 import cn.metaq.tx2.domain.ProductPay;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 /**
@@ -15,4 +16,8 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class ProductPayBizImpl extends BaseBiz<ProductPay, Long, ProductPayDao> implements ProductPayBiz {
+    @Override
+    public Specification map(ProductPay productPay) {
+        return null;
+    }
 }

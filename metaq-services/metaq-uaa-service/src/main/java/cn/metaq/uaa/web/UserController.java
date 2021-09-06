@@ -70,7 +70,7 @@ public class UserController extends BaseController<UserBiz> {
     @DeleteMapping(value = "users/{id}")
     public void delete(@PathVariable Long id) {
 
-        baseBiz.deleteById(id);
+        baseBiz.deleteById(null,id);
     }
 
     /**

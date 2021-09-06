@@ -6,7 +6,7 @@ import cn.metaq.uaa.biz.ResourceBiz;
 import cn.metaq.uaa.dao.ResourceDao;
 import cn.metaq.uaa.domain.Resource;
 import cn.metaq.uaa.dto.ResourceDTO;
-import cn.metaq.uaa.dto.UserDTO;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -66,5 +66,10 @@ public class ResourceBizImpl extends BaseBiz<ResourceDTO, Long, ResourceDao> imp
 
         List<ResourceDTO> resources=template.list(ResourceDTO.class,jql,params);
         return resources;
+    }
+
+    @Override
+    public Specification map(ResourceDTO resourceDTO) {
+        return null;
     }
 }

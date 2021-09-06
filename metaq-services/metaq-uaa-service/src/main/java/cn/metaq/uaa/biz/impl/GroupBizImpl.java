@@ -11,11 +11,6 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -136,5 +131,10 @@ public class GroupBizImpl extends BaseBiz<GroupDTO, Long, GroupDao> implements G
     private List<GroupNodeDTO> mapToGroupNode(List<Group> groups) {
 
         return groups.stream().map(s -> mapToGroupNode(s)).collect(Collectors.toList());
+    }
+
+    @Override
+    public Specification map(GroupDTO groupDTO) {
+        return null;
     }
 }

@@ -115,4 +115,9 @@ public class UserBizImpl extends BaseBiz<UserDTO, Long, UserDao> implements User
         List<UserDTO> users=template.list(UserDTO.class,jql,params);
         return users;
     }
+
+    @Override
+    public Specification map(UserDTO userDTO) {
+        return null;
+    }
 }

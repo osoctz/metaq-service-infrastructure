@@ -34,7 +34,7 @@ public class ResourceController extends BaseController<ResourceBiz> {
     @DeleteMapping(value = "resources/{id}")
     public void delete(@PathVariable Long id) {
 
-        baseBiz.deleteById(id);
+        baseBiz.deleteById(null,id);
     }
 
     @GetMapping(value = "/{groupId}/resources")

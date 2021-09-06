@@ -6,6 +6,7 @@ import cn.metaq.uaa.biz.RoleBiz;
 import cn.metaq.uaa.dao.RoleDao;
 import cn.metaq.uaa.domain.Role;
 import cn.metaq.uaa.dto.RoleDTO;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -90,5 +91,10 @@ public class RoleBizImpl extends BaseBiz<RoleDTO, Long, RoleDao> implements Role
 
         List<RoleDTO> roles = template.list(RoleDTO.class, jql, params);
         return roles;
+    }
+
+    @Override
+    public Specification map(RoleDTO roleDTO) {
+        return null;
     }
 }

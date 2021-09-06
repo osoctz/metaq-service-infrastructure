@@ -86,4 +86,9 @@ public class ClientDetailsBizImpl extends BaseBiz<ClientDetailsDTO, Long, Client
         }
         return Collections.singleton("");
     }
+
+    @Override
+    public Specification map(ClientDetailsDTO clientDetailsDTO) {
+        return null;
+    }
 }

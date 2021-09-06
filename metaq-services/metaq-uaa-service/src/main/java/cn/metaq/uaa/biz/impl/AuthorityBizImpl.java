@@ -5,6 +5,7 @@ import cn.metaq.data.jpa.BaseTemplate;
 import cn.metaq.uaa.biz.AuthorityBiz;
 import cn.metaq.uaa.dao.AuthorityDao;
 import cn.metaq.uaa.dto.AuthorityDTO;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -40,5 +41,10 @@ public class AuthorityBizImpl extends BaseBiz<AuthorityDTO, Long, AuthorityDao> 
 
         List<String> authorities = template.list(String.class, jql, params);
         return authorities.stream().collect(Collectors.toSet());
+    }
+
+    @Override
+    public Specification map(AuthorityDTO authorityDTO) {
+        return null;
     }
 }

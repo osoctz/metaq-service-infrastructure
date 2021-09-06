@@ -53,7 +53,7 @@ public class GroupController extends BaseController<GroupBiz> {
     @DeleteMapping(value = "groups/{id}")
     public void delete(@PathVariable Long id) {
 
-        baseBiz.deleteById(id);
+        baseBiz.deleteById(null,id);
     }
 
     /**

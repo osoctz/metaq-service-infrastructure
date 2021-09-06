@@ -75,7 +75,7 @@ public class RoleController extends BaseController<RoleBiz> {
     @DeleteMapping(value = "roles/{id}")
     public void delete(@PathVariable Long id) {
 
-        baseBiz.deleteById(id);
+        baseBiz.deleteById(null,id);
     }
 
     /**

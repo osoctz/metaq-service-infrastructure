@@ -48,4 +48,5 @@ public class MobileBizImpl extends BaseBiz<MobileDTO, Long, MobileDao> implement
             return cb.and(predicates.toArray(new Predicate[predicates.size()]));
         };
     }
+
 }

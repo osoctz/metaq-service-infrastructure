@@ -23,9 +23,10 @@ import java.util.List;
 @Service
 public class AreaBizImpl extends BaseBiz<AreaDTO, Long, AreaDao> implements AreaBiz {
 
+    @Override
     public Specification<Area> map(AreaDTO areaDTO) {
 
-        return (Specification<Area>) (root, cq, cb) -> {
+        return (root, cq, cb) -> {
 
             List<Predicate> predicates = new ArrayList<>();
 
